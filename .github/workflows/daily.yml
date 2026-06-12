@@ -1,0 +1,71 @@
+name: daily-growth
+
+on:
+  schedule:
+    - cron: "23 21 * * *" # 21:23 UTC = 06:23 JST(毎時0分は混雑するため回避)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+  issues: write
+
+concurrency:
+  group: daily-growth
+  cancel-in-progress: false
+
+jobs:
+  grow:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Generate content (Gemini)
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: python builder/generate.py
+
+      - name: Run logic tests (fail-closed gate 1)
+        run: node tests/run.mjs
+
+      - name: Build & validate site (fail-closed gate 2)
+        run: python builder/build.py
+
+      - name: Commit content & state
+        run: |
+          git config user.name "kurashi-bot"
+          git config user.email "kurashi-bot@users.noreply.github.com"
+          git add content queue state
+          git commit -m "daily: $(date -u +%Y-%m-%d)" || echo "no content changes"
+          git push
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+      - name: Deploy to GitHub Pages
+        uses: actions/deploy-pages@v4
+
+      - name: Notify IndexNow
+        continue-on-error: true
+        run: python builder/notify.py
+
+      - name: Open issue on failure
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITLE="daily-growth 失敗 $(date -u +%Y-%m-%d)"
+          BODY="自動実行が失敗しました。ログ: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          EXISTING=$(gh issue list --repo "${{ github.repository }}" --state open --search "daily-growth 失敗" --json number --jq '.[0].number' || echo "")
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --repo "${{ github.repository }}" --body "$BODY"
+          else
+            gh issue create --repo "${{ github.repository }}" --title "$TITLE" --body "$BODY"
+          fi

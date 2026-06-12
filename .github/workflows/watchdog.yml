@@ -1,0 +1,52 @@
+name: watchdog
+
+on:
+  schedule:
+    - cron: "47 22 * * 1" # 毎週月曜 22:47 UTC = 火曜 07:47 JST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check site is alive
+        id: alive
+        run: |
+          BASE_URL=$(python -c "import json;print(json.load(open('config/site.json',encoding='utf-8'))['base_url'])")
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" --max-time 30 "$BASE_URL/" || echo "000")
+          echo "status=$STATUS" >> "$GITHUB_OUTPUT"
+          echo "サイト応答: HTTP $STATUS ($BASE_URL)"
+
+      - name: Check last successful run
+        id: fresh
+        run: |
+          LAST=$(python -c "import json;print(json.load(open('state/runlog.json',encoding='utf-8')).get('last_run') or '')" 2>/dev/null || echo "")
+          echo "last_run=$LAST" >> "$GITHUB_OUTPUT"
+          if [ -n "$LAST" ]; then
+            DAYS=$(python -c "import datetime;print((datetime.date.today()-datetime.date.fromisoformat('$LAST')).days)")
+          else
+            DAYS=999
+          fi
+          echo "days=$DAYS" >> "$GITHUB_OUTPUT"
+          echo "最終実行から ${DAYS}日"
+
+      - name: Open issue if unhealthy
+        if: steps.alive.outputs.status != '200' || steps.fresh.outputs.days > 3
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TITLE="watchdog: サイト健全性チェックNG $(date -u +%Y-%m-%d)"
+          BODY="HTTP status: ${{ steps.alive.outputs.status }} / 最終実行: ${{ steps.fresh.outputs.last_run }}(${{ steps.fresh.outputs.days }}日前)。daily-growthワークフローの状態を確認してください。"
+          EXISTING=$(gh issue list --repo "${{ github.repository }}" --state open --search "watchdog" --json number --jq '.[0].number' || echo "")
+          if [ -n "$EXISTING" ]; then
+            gh issue comment "$EXISTING" --repo "${{ github.repository }}" --body "$BODY"
+          else
+            gh issue create --repo "${{ github.repository }}" --title "$TITLE" --body "$BODY"
+          fi
