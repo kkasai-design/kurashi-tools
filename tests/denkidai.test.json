@@ -1,0 +1,37 @@
+[
+  {
+    "name": "1000Wを1日1時間は1日31円",
+    "input": { "watts": 1000, "hours_per_day": 1, "unit_price": 31 },
+    "expect": { "details": { "1日の電気代": "31円(1kWh)", "1ヶ月の電気代(30日)": "930円(30kWh)" } }
+  },
+  {
+    "name": "500Wを8時間(在宅PC等)",
+    "input": { "watts": 500, "hours_per_day": 8, "unit_price": 31 },
+    "expect": { "details": { "1日の電気代": "124円(4kWh)", "1年の電気代(365日)": "45,260円(1,460kWh)" } }
+  },
+  {
+    "name": "エアコン600Wを12時間",
+    "input": { "watts": 600, "hours_per_day": 12, "unit_price": 31 },
+    "expect": { "summary_contains": "223円", "details": { "1ヶ月の電気代(30日)": "6,696円(216kWh)" } }
+  },
+  {
+    "name": "待機電力1Wの年額",
+    "input": { "watts": 1, "hours_per_day": 24, "unit_price": 31 },
+    "expect": { "details": { "1年の電気代(365日)": "272円(9kWh)" } }
+  },
+  {
+    "name": "単価カスタム(27円)",
+    "input": { "watts": 1000, "hours_per_day": 1, "unit_price": 27 },
+    "expect": { "details": { "1日の電気代": "27円(1kWh)" } }
+  },
+  {
+    "name": "W未入力はエラー",
+    "input": { "watts": null, "hours_per_day": 1, "unit_price": 31 },
+    "expect": { "throws": true }
+  },
+  {
+    "name": "25時間はエラー",
+    "input": { "watts": 1000, "hours_per_day": 25, "unit_price": 31 },
+    "expect": { "throws": true }
+  }
+]

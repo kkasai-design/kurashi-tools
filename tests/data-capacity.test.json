@@ -1,0 +1,27 @@
+[
+  {
+    "name": "1GBは1024MB",
+    "input": { "value": 1, "unit": "GB" },
+    "expect": { "details": { "MB(メガバイト)": "1,024 MB", "KB(キロバイト)": "1,048,576 KB" } }
+  },
+  {
+    "name": "512MBは0.5GB",
+    "input": { "value": 512, "unit": "MB" },
+    "expect": { "details": { "GB(ギガバイト)": "0.5 GB" } }
+  },
+  {
+    "name": "2TBは2048GB",
+    "input": { "value": 2, "unit": "TB" },
+    "expect": { "details": { "GB(ギガバイト)": "2,048 GB" } }
+  },
+  {
+    "name": "1GBで写真何枚(4MB換算256枚)",
+    "input": { "value": 1, "unit": "GB" },
+    "expect": { "table_includes": ["約256枚", "約128曲"] }
+  },
+  {
+    "name": "未入力はエラー",
+    "input": { "value": null, "unit": "GB" },
+    "expect": { "throws": true }
+  }
+]

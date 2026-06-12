@@ -1,0 +1,25 @@
+{
+  "id": "kekkon-kinenbi",
+  "version": 1,
+  "title": "結婚記念日計算(銀婚式・金婚式はいつ?)",
+  "h1": "結婚記念日の早見表|今年は何婚式?銀婚式・金婚式の年を自動計算",
+  "category": "life",
+  "description": "結婚した日を入れるだけで、今年が結婚何周年で「何婚式」かを自動表示。紙婚式から銀婚式・金婚式・ダイヤモンド婚式まで全記念日の早見表つき。プレゼント選びの参考に。",
+  "keywords": ["結婚記念日 何婚式", "銀婚式 何年", "金婚式 何年", "結婚 周年 名称"],
+  "ui": {
+    "inputs": [
+      { "name": "wedding", "type": "date", "label": "結婚記念日(入籍日または挙式日)" },
+      { "name": "asof", "type": "date", "label": "基準日(今日)", "default": "today" }
+    ],
+    "submit_label": "何婚式か調べる"
+  },
+  "logic_file": "logic/kekkon-kinenbi.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["days-between", "choju-iwai", "age"],
+  "monetize": { "rakuten_keyword": "結婚記念日 プレゼント", "cta": null },
+  "publish_after": null,
+  "priority": 5
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "1966年生まれは2026年に還暦",
+    "input": { "birth_year": 1966, "asof_year": 2026 },
+    "expect": { "summary_contains": "還暦", "details": { "今年の数え年": "61歳(2026年)" } }
+  },
+  {
+    "name": "1957年生まれは2026年に古希",
+    "input": { "birth_year": 1957, "asof_year": 2026 },
+    "expect": { "summary_contains": "古希" }
+  },
+  {
+    "name": "1950年生まれは2026年に喜寿",
+    "input": { "birth_year": 1950, "asof_year": 2026 },
+    "expect": { "summary_contains": "喜寿" }
+  },
+  {
+    "name": "1939年生まれは2026年に米寿",
+    "input": { "birth_year": 1939, "asof_year": 2026 },
+    "expect": { "summary_contains": "米寿" }
+  },
+  {
+    "name": "1990年生まれの次の祝いは2050年の還暦",
+    "input": { "birth_year": 1990, "asof_year": 2026 },
+    "expect": { "summary_contains": "還暦", "details": { "次の長寿祝い": "還暦(かんれき) … 2050年(あと24年)" } }
+  },
+  {
+    "name": "還暦の表記は数えと満が同じ年",
+    "input": { "birth_year": 1966, "asof_year": 2026 },
+    "expect": { "table_includes": ["還暦(かんれき)", "2026年", "2026年(満60歳)"] }
+  },
+  {
+    "name": "白寿・百寿も表に含まれる",
+    "input": { "birth_year": 1966, "asof_year": 2026 },
+    "expect": { "table_includes": ["白寿(はくじゅ)", "百寿(ひゃくじゅ)", "2065年"] }
+  },
+  {
+    "name": "生年未入力はエラー",
+    "input": { "birth_year": null, "asof_year": 2026 },
+    "expect": { "throws": true }
+  },
+  {
+    "name": "未来の生年はエラー",
+    "input": { "birth_year": 2030, "asof_year": 2026 },
+    "expect": { "throws": true }
+  }
+]

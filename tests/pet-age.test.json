@@ -1,0 +1,62 @@
+[
+  {
+    "name": "猫1歳は人間15歳",
+    "input": { "species": "cat", "years": 1, "months": 0 },
+    "expect": { "summary_contains": "約15歳", "details": { "人間換算": "約15歳" } }
+  },
+  {
+    "name": "猫2歳は人間24歳",
+    "input": { "species": "cat", "years": 2, "months": 0 },
+    "expect": { "details": { "人間換算": "約24歳" } }
+  },
+  {
+    "name": "猫5歳は人間36歳",
+    "input": { "species": "cat", "years": 5, "months": 0 },
+    "expect": { "details": { "人間換算": "約36歳" } }
+  },
+  {
+    "name": "大型犬5歳は人間40歳",
+    "input": { "species": "dog_large", "years": 5, "months": 0 },
+    "expect": { "details": { "人間換算": "約40歳" } }
+  },
+  {
+    "name": "小型犬10歳は人間56歳・シニア",
+    "input": { "species": "dog_small", "years": 10, "months": 0 },
+    "expect": { "details": { "人間換算": "約56歳" }, "summary_contains": "56" }
+  },
+  {
+    "name": "中型犬10歳は人間64歳",
+    "input": { "species": "dog_medium", "years": 10, "months": 0 },
+    "expect": { "details": { "人間換算": "約64歳" } }
+  },
+  {
+    "name": "子猫6ヶ月は人間7.5歳",
+    "input": { "species": "cat", "years": 0, "months": 6 },
+    "expect": { "details": { "人間換算": "約7.5歳", "ライフステージ": "子猫・子犬期(成長期)" } }
+  },
+  {
+    "name": "猫1歳6ヶ月は人間19.5歳",
+    "input": { "species": "cat", "years": 1, "months": 6 },
+    "expect": { "details": { "人間換算": "約19.5歳" } }
+  },
+  {
+    "name": "早見表に1年と18年が含まれる",
+    "input": { "species": "cat", "years": 3, "months": 0 },
+    "expect": { "table_includes": ["1年", "18年", "88歳"] }
+  },
+  {
+    "name": "猫8歳はシニア期",
+    "input": { "species": "cat", "years": 8, "months": 0 },
+    "expect": { "summary_contains": "48", "details": { "ライフステージ": "シニア期(7歳頃〜は健康診断を年2回が目安)" } }
+  },
+  {
+    "name": "0歳0ヶ月はエラー",
+    "input": { "species": "cat", "years": 0, "months": 0 },
+    "expect": { "throws": true }
+  },
+  {
+    "name": "種類未選択はエラー",
+    "input": { "species": "", "years": 3, "months": 0 },
+    "expect": { "throws": true }
+  }
+]

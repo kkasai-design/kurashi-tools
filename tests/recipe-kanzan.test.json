@@ -1,0 +1,27 @@
+[
+  {
+    "name": "2人分→3人分は1.5倍",
+    "input": { "from_servings": 2, "to_servings": 3 },
+    "expect": { "summary_contains": "1.5倍", "table_includes": ["150g", "22.5ml"] }
+  },
+  {
+    "name": "4人分→2人分は0.5倍",
+    "input": { "from_servings": 4, "to_servings": 2 },
+    "expect": { "summary_contains": "0.5倍" }
+  },
+  {
+    "name": "個別の材料量を換算(300gの1.5倍=450g)",
+    "input": { "from_servings": 2, "to_servings": 3, "amount": 300 },
+    "expect": { "details": { "材料 300 の場合": "450 に換算" } }
+  },
+  {
+    "name": "3人分→4人分の倍率は1.33",
+    "input": { "from_servings": 3, "to_servings": 4 },
+    "expect": { "summary_contains": "1.33倍" }
+  },
+  {
+    "name": "人数未入力はエラー",
+    "input": { "from_servings": null, "to_servings": 3 },
+    "expect": { "throws": true }
+  }
+]

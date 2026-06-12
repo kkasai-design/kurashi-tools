@@ -1,0 +1,32 @@
+{
+  "id": "shohizei",
+  "version": 1,
+  "title": "消費税計算ツール(10%・8% 税込⇔税抜)",
+  "h1": "消費税計算|税込価格・税抜価格を10%・8%で一発計算",
+  "category": "money",
+  "description": "税抜から税込、税込から税抜を一発計算。標準税率10%と軽減税率8%に対応した無料の消費税計算ツール。経費精算や請求書作成、買い物中の確認に。",
+  "keywords": ["消費税 計算", "税込 計算", "税抜 計算", "内税 外税"],
+  "ui": {
+    "inputs": [
+      { "name": "mode", "type": "radio", "label": "計算の種類", "options": [
+        { "value": "add", "label": "税抜→税込(税金を足す)" },
+        { "value": "remove", "label": "税込→税抜(税金を取り除く)" }
+      ], "default": "add" },
+      { "name": "amount", "type": "number", "label": "金額", "min": 1, "placeholder": "例: 1000", "unit": "円" },
+      { "name": "rate", "type": "radio", "label": "税率", "options": [
+        { "value": "10", "label": "10%(標準税率)" },
+        { "value": "8", "label": "8%(軽減税率: 食品・新聞など)" }
+      ], "default": "10" }
+    ],
+    "submit_label": "消費税を計算する"
+  },
+  "logic_file": "logic/shohizei.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["percent", "warikan", "jikyu-kanzan"],
+  "monetize": { "rakuten_keyword": null, "cta": null },
+  "publish_after": null,
+  "priority": 2
+}

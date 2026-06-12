@@ -1,0 +1,25 @@
+{
+  "id": "zaishoku-kikan",
+  "version": 1,
+  "title": "在職期間計算(履歴書・職務経歴書用)",
+  "h1": "在職期間の計算|入社日と退職日から「何年何ヶ月」を自動計算",
+  "category": "date",
+  "description": "入社日と退職日を入れるだけで在職期間(○年○ヶ月)を自動計算。履歴書・職務経歴書の経歴欄、失業保険(雇用保険)の加入期間確認に使える無料ツール。和暦表記つき。",
+  "keywords": ["在職期間 計算", "勤続年数 計算", "入社 退職 何年", "職務経歴書 期間"],
+  "ui": {
+    "inputs": [
+      { "name": "start", "type": "date", "label": "入社日" },
+      { "name": "end", "type": "date", "label": "退職日(在職中なら今日)", "default": "today" }
+    ],
+    "submit_label": "在職期間を計算する"
+  },
+  "logic_file": "logic/zaishoku-kikan.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["days-between", "graduation-year", "seireki-wareki"],
+  "monetize": { "rakuten_keyword": null, "cta": null },
+  "publish_after": null,
+  "priority": 23
+}

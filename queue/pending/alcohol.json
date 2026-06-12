@@ -1,0 +1,34 @@
+{
+  "id": "alcohol",
+  "version": 1,
+  "title": "アルコール分解時間の目安計算",
+  "h1": "アルコールが抜ける時間の目安|飲んだ量と体重から分解時間を計算",
+  "category": "health",
+  "description": "飲んだお酒の種類・量・体重からアルコール分解にかかる時間の目安を計算。ビール・日本酒・ワイン・ハイボールに対応。純アルコール量(g)もわかる無料ツール。※運転の可否判断には使えません。",
+  "keywords": ["アルコール 抜ける時間", "アルコール 分解 時間", "お酒 何時間", "純アルコール量 計算"],
+  "ui": {
+    "inputs": [
+      { "name": "drink", "type": "select", "label": "お酒の種類", "options": [
+        { "value": "beer500", "label": "ビール中瓶・ロング缶(500ml)" },
+        { "value": "beer350", "label": "ビール缶(350ml)" },
+        { "value": "sake1go", "label": "日本酒1合" },
+        { "value": "wine", "label": "ワイングラス1杯" },
+        { "value": "shochu", "label": "焼酎水割り1杯" },
+        { "value": "highball", "label": "ハイボール・チューハイ缶(350ml)" },
+        { "value": "whisky", "label": "ウイスキーシングル1杯" }
+      ], "default": "beer500" },
+      { "name": "count", "type": "number", "label": "杯数・本数", "min": 1, "max": 50, "default": 2, "unit": "杯(本)" },
+      { "name": "weight", "type": "number", "label": "体重", "min": 30, "max": 200, "placeholder": "例: 60", "unit": "kg" }
+    ],
+    "submit_label": "分解時間の目安を計算する"
+  },
+  "logic_file": "logic/alcohol.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["bmi", "suimin-cycle", "warikan"],
+  "monetize": { "rakuten_keyword": "ノンアルコールビール", "cta": null },
+  "publish_after": null,
+  "priority": 28
+}

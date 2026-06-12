@@ -1,0 +1,32 @@
+[
+  {
+    "name": "30代・友人への香典は5千〜1万円",
+    "input": { "type": "koden", "relation": "friend", "age": "30s" },
+    "expect": { "summary_contains": "5千〜1万円", "details": { "香典の相場": "5千〜1万円" } }
+  },
+  {
+    "name": "40代・祖父母への香典は3〜5万円",
+    "input": { "type": "koden", "relation": "grandparent", "age": "40s+" },
+    "expect": { "summary_contains": "3〜5万円" }
+  },
+  {
+    "name": "30代・友人へのご祝儀は3万円",
+    "input": { "type": "goshugi", "relation": "friend", "age": "30s" },
+    "expect": { "summary_contains": "3万円", "details": { "ご祝儀の相場": "3万円" } }
+  },
+  {
+    "name": "20代・友人へのご祝儀は2〜3万円",
+    "input": { "type": "goshugi", "relation": "friend", "age": "20s" },
+    "expect": { "summary_contains": "2〜3万円" }
+  },
+  {
+    "name": "ご祝儀のnoteには奇数マナー",
+    "input": { "type": "goshugi", "relation": "coworker", "age": "30s" },
+    "expect": { "note_contains": "奇数" }
+  },
+  {
+    "name": "関係未選択はエラー",
+    "input": { "type": "koden", "relation": "", "age": "30s" },
+    "expect": { "throws": true }
+  }
+]

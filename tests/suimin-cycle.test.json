@@ -1,0 +1,27 @@
+[
+  {
+    "name": "7時起床の就寝候補(6サイクル=21:45)",
+    "input": { "mode": "bed_from_wake", "time": "7:00" },
+    "expect": { "summary_contains": "7:00", "table_includes": ["21:45 に布団へ", "23:15 に布団へ", "0:45 に布団へ", "9時間", "7時間30分"] }
+  },
+  {
+    "name": "23時就寝の起床候補(5サイクル=6:45)",
+    "input": { "mode": "wake_from_bed", "time": "23:00" },
+    "expect": { "table_includes": ["6:45 に起床", "8:15 に起床", "5:15 に起床"] }
+  },
+  {
+    "name": "日付またぎ(1:00就寝)",
+    "input": { "mode": "wake_from_bed", "time": "1:00" },
+    "expect": { "table_includes": ["8:45 に起床"] }
+  },
+  {
+    "name": "0時起床指定の逆算(深夜勤務)",
+    "input": { "mode": "bed_from_wake", "time": "0:00" },
+    "expect": { "table_includes": ["14:45 に布団へ"] }
+  },
+  {
+    "name": "時刻未入力はエラー",
+    "input": { "mode": "bed_from_wake", "time": "" },
+    "expect": { "throws": true }
+  }
+]

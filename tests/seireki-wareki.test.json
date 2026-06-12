@@ -1,0 +1,62 @@
+[
+  {
+    "name": "西暦2025年→令和7年",
+    "input": { "era": "seireki", "year": 2025 },
+    "expect": { "summary_contains": "令和7年", "details": { "西暦": "2025年", "和暦": "令和7年" } }
+  },
+  {
+    "name": "改元年2019年は平成31年/令和元年を併記",
+    "input": { "era": "seireki", "year": 2019 },
+    "expect": { "details": { "和暦": "平成31年/令和元年" } }
+  },
+  {
+    "name": "改元年1989年は昭和64年/平成元年を併記",
+    "input": { "era": "seireki", "year": 1989 },
+    "expect": { "details": { "和暦": "昭和64年/平成元年" } }
+  },
+  {
+    "name": "改元年1926年は大正15年/昭和元年を併記",
+    "input": { "era": "seireki", "year": 1926 },
+    "expect": { "details": { "和暦": "大正15年/昭和元年" } }
+  },
+  {
+    "name": "平成7年→1995年",
+    "input": { "era": "heisei", "year": 7 },
+    "expect": { "summary_contains": "1995", "details": { "西暦": "1995年" } }
+  },
+  {
+    "name": "昭和64年→1989年",
+    "input": { "era": "showa", "year": 64 },
+    "expect": { "summary_contains": "1989" }
+  },
+  {
+    "name": "令和8年→2026年",
+    "input": { "era": "reiwa", "year": 8 },
+    "expect": { "summary_contains": "2026", "details": { "十二支": "午(うま)" } }
+  },
+  {
+    "name": "存在しない平成40年は換算値2028年+注記",
+    "input": { "era": "heisei", "year": 40 },
+    "expect": { "summary_contains": "2028", "note_contains": "平成は31年まで" }
+  },
+  {
+    "name": "2025年の十二支は巳",
+    "input": { "era": "seireki", "year": 2025 },
+    "expect": { "details": { "十二支": "巳(へび)" } }
+  },
+  {
+    "name": "対照表に前後の年が含まれる",
+    "input": { "era": "seireki", "year": 2000 },
+    "expect": { "table_includes": ["1995年", "2005年", "平成12年"] }
+  },
+  {
+    "name": "範囲外はエラー",
+    "input": { "era": "seireki", "year": 1850 },
+    "expect": { "throws": true }
+  },
+  {
+    "name": "未入力はエラー",
+    "input": { "era": "seireki", "year": null },
+    "expect": { "throws": true }
+  }
+]

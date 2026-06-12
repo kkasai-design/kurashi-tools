@@ -1,0 +1,32 @@
+[
+  {
+    "name": "平均点ちょうどは偏差値50",
+    "input": { "score": 60, "average": 60, "sd": 15 },
+    "expect": { "details": { "偏差値": "50" } }
+  },
+  {
+    "name": "平均+1SDは偏差値60",
+    "input": { "score": 75, "average": 60, "sd": 15 },
+    "expect": { "details": { "偏差値": "60", "平均との差": "+15点" } }
+  },
+  {
+    "name": "平均-2SDは偏差値30",
+    "input": { "score": 30, "average": 60, "sd": 15 },
+    "expect": { "details": { "偏差値": "30" } }
+  },
+  {
+    "name": "85点・平均60・SD15は偏差値66.7",
+    "input": { "score": 85, "average": 60, "sd": 15 },
+    "expect": { "details": { "偏差値": "66.7" } }
+  },
+  {
+    "name": "上位パーセントの近似(偏差値60は上位約15.9%)",
+    "input": { "score": 75, "average": 60, "sd": 15 },
+    "expect": { "summary_contains": "上位約15.9%" }
+  },
+  {
+    "name": "標準偏差0はエラー",
+    "input": { "score": 60, "average": 60, "sd": 0 },
+    "expect": { "throws": true }
+  }
+]

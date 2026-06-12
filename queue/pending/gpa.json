@@ -1,0 +1,28 @@
+{
+  "id": "gpa",
+  "version": 1,
+  "title": "GPA計算ツール(秀優良可の単位数から)",
+  "h1": "GPA計算|成績(秀・優・良・可)の単位数を入れるだけで自動計算",
+  "category": "life",
+  "description": "秀・優・良・可・不可それぞれの単位数を入れるだけでGPAを自動計算。奨学金・大学院進学・留学で必要なGPAの確認に使える無料ツール。評価の目安つき。",
+  "keywords": ["GPA 計算", "GPA 出し方", "大学 成績 GPA", "GPA 平均"],
+  "ui": {
+    "inputs": [
+      { "name": "s", "type": "number", "label": "秀・S(GP4.0)の単位数", "min": 0, "max": 200, "default": 0, "unit": "単位" },
+      { "name": "a", "type": "number", "label": "優・A(GP3.0)の単位数", "min": 0, "max": 200, "default": 0, "unit": "単位" },
+      { "name": "b", "type": "number", "label": "良・B(GP2.0)の単位数", "min": 0, "max": 200, "default": 0, "unit": "単位" },
+      { "name": "c", "type": "number", "label": "可・C(GP1.0)の単位数", "min": 0, "max": 200, "default": 0, "unit": "単位" },
+      { "name": "f", "type": "number", "label": "不可・F(GP0)の単位数", "min": 0, "max": 200, "default": 0, "unit": "単位" }
+    ],
+    "submit_label": "GPAを計算する"
+  },
+  "logic_file": "logic/gpa.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["hensachi", "graduation-year", "percent"],
+  "monetize": { "rakuten_keyword": null, "cta": null },
+  "publish_after": null,
+  "priority": 22
+}

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "10000円を3人で100円単位(全員同額)",
+    "input": { "total": 10000, "people": 3, "unit": "100", "mode": "equal" },
+    "expect": { "summary_contains": "3,400円", "details": { "一人あたり": "3,400円", "集まる金額": "10,200円(3,400円 × 3人)", "余り(お釣り)": "200円" } }
+  },
+  {
+    "name": "10000円を3人で1円単位",
+    "input": { "total": 10000, "people": 3, "unit": "1", "mode": "equal" },
+    "expect": { "details": { "一人あたり": "3,334円", "余り(お釣り)": "2円" } }
+  },
+  {
+    "name": "割り切れる場合は余り0",
+    "input": { "total": 12000, "people": 4, "unit": "100", "mode": "equal" },
+    "expect": { "details": { "一人あたり": "3,000円", "余り(お釣り)": "0円" } }
+  },
+  {
+    "name": "幹事多め: 参加者は切り下げ500円単位",
+    "input": { "total": 10000, "people": 3, "unit": "500", "mode": "kanji_more" },
+    "expect": { "details": { "参加者一人あたり(幹事以外)": "3,000円", "幹事の支払い": "4,000円" } }
+  },
+  {
+    "name": "幹事少なめ: 参加者は切り上げ100円単位",
+    "input": { "total": 10000, "people": 3, "unit": "100", "mode": "kanji_less" },
+    "expect": { "details": { "参加者一人あたり(幹事以外)": "3,400円", "幹事の支払い": "3,200円" } }
+  },
+  {
+    "name": "1人なら全額",
+    "input": { "total": 5000, "people": 1, "unit": "100", "mode": "equal" },
+    "expect": { "summary_contains": "5,000円" }
+  },
+  {
+    "name": "大人数でも正確",
+    "input": { "total": 123456, "people": 17, "unit": "10", "mode": "equal" },
+    "expect": { "details": { "一人あたり": "7,270円" } }
+  },
+  {
+    "name": "金額未入力はエラー",
+    "input": { "total": null, "people": 3, "unit": "100", "mode": "equal" },
+    "expect": { "throws": true }
+  },
+  {
+    "name": "0人はエラー",
+    "input": { "total": 10000, "people": 0, "unit": "100", "mode": "equal" },
+    "expect": { "throws": true }
+  }
+]

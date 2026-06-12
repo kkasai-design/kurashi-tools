@@ -1,0 +1,26 @@
+{
+  "id": "teiki-bunki",
+  "version": 1,
+  "title": "定期券の損益分岐計算(都度払いとどっちが得?)",
+  "h1": "定期券は得?損?|都度払いとの損益分岐を一発計算【テレワーク対応】",
+  "category": "money",
+  "description": "片道運賃と定期代から「月何日使えば定期が得か」を計算。週2〜3出社のテレワーク勤務で定期券を買うべきか、回数で迷う人のための無料ツールです。",
+  "keywords": ["定期券 元を取る 日数", "定期 都度払い どっち", "テレワーク 定期券", "定期券 損益分岐"],
+  "ui": {
+    "inputs": [
+      { "name": "fare", "type": "number", "label": "片道の運賃(ICカード)", "min": 1, "placeholder": "例: 220", "unit": "円" },
+      { "name": "teiki_monthly", "type": "number", "label": "1ヶ月定期の金額", "min": 1, "placeholder": "例: 7000", "unit": "円" },
+      { "name": "days_per_month", "type": "number", "label": "月に使う日数", "min": 0, "max": 31, "default": 20, "unit": "日", "note": "週5出社なら20日前後、週3なら12〜13日が目安" }
+    ],
+    "submit_label": "どちらが得か計算する"
+  },
+  "logic_file": "logic/teiki-bunki.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["jikyu-kanzan", "sumaho-plan", "percent"],
+  "monetize": { "rakuten_keyword": null, "cta": null },
+  "publish_after": null,
+  "priority": 16
+}

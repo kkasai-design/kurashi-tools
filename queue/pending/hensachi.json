@@ -1,0 +1,26 @@
+{
+  "id": "hensachi",
+  "version": 1,
+  "title": "偏差値計算ツール(点数と平均点から)",
+  "h1": "偏差値計算|自分の点数・平均点・標準偏差から偏差値と上位○%を計算",
+  "category": "life",
+  "description": "テストの点数・平均点・標準偏差を入れるだけで偏差値と「上位何%か」を自動計算。偏差値ごとの点数早見表つき。模試や定期テストの立ち位置確認に使える無料ツール。",
+  "keywords": ["偏差値 計算", "偏差値 出し方", "偏差値 上位 何パーセント", "テスト 偏差値"],
+  "ui": {
+    "inputs": [
+      { "name": "score", "type": "number", "label": "自分の点数", "min": 0, "max": 1000, "step": "any", "placeholder": "例: 75", "unit": "点" },
+      { "name": "average", "type": "number", "label": "平均点", "min": 0, "max": 1000, "step": "any", "placeholder": "例: 60", "unit": "点" },
+      { "name": "sd", "type": "number", "label": "標準偏差", "min": 0.1, "max": 200, "step": "any", "default": 15, "unit": "", "note": "成績表に記載がない場合は15〜18を入れると概算できます" }
+    ],
+    "submit_label": "偏差値を計算する"
+  },
+  "logic_file": "logic/hensachi.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["percent", "gakunen", "graduation-year"],
+  "monetize": { "rakuten_keyword": null, "cta": null },
+  "publish_after": null,
+  "priority": 21
+}

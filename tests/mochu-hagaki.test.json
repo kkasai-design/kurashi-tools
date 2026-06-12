@@ -1,0 +1,32 @@
+[
+  {
+    "name": "親が2026年に死去→2027年の年賀状を欠礼",
+    "input": { "relation": "parent", "death_date": "2026-03-10" },
+    "expect": { "summary_contains": "2027年の年賀状を欠礼", "details": { "出せない年賀状": "2027年の年賀状(2027年の正月)" } }
+  },
+  {
+    "name": "喪中はがきの時期は11月中旬〜12月初旬",
+    "input": { "relation": "parent", "death_date": "2026-03-10" },
+    "expect": { "details": { "喪中はがきを出す時期": "2026年11月中旬〜12月初旬(相手が年賀状を準備する前に)" } }
+  },
+  {
+    "name": "祖父母は2親等で喪中が一般的",
+    "input": { "relation": "grandparent", "death_date": "2026-05-01" },
+    "expect": { "details": { "続柄": "祖父母(2親等)", "喪中の一般的な扱い": "喪中とする(年賀欠礼する)のが一般的" } }
+  },
+  {
+    "name": "おじ・おばは喪中にしないのが一般的",
+    "input": { "relation": "uncle", "death_date": "2026-05-01" },
+    "expect": { "summary_contains": "喪中としないことが一般的" }
+  },
+  {
+    "name": "寒中見舞いの時期",
+    "input": { "relation": "spouse", "death_date": "2026-08-20" },
+    "expect": { "details": { "年賀状の代わり(受け取った場合)": "寒中見舞い: 2027年1月8日〜2月3日頃に出す" } }
+  },
+  {
+    "name": "続柄未選択はエラー",
+    "input": { "relation": "", "death_date": "2026-03-10" },
+    "expect": { "throws": true }
+  }
+]

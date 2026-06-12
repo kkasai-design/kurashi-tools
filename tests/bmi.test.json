@@ -1,0 +1,32 @@
+[
+  {
+    "name": "170cm65kgはBMI22.5・普通体重",
+    "input": { "height": 170, "weight": 65 },
+    "expect": { "summary_contains": "22.5", "details": { "BMI": "22.5", "判定(日本肥満学会基準)": "普通体重" } }
+  },
+  {
+    "name": "160cm45kgは低体重",
+    "input": { "height": 160, "weight": 45 },
+    "expect": { "details": { "BMI": "17.6", "判定(日本肥満学会基準)": "低体重(やせ)" } }
+  },
+  {
+    "name": "170cm80kgは肥満1度",
+    "input": { "height": 170, "weight": 80 },
+    "expect": { "details": { "判定(日本肥満学会基準)": "肥満(1度)" } }
+  },
+  {
+    "name": "標準体重の計算(170cmは63.6kg)",
+    "input": { "height": 170, "weight": 65 },
+    "expect": { "details": { "標準体重(BMI22)": "63.6kg(+1.4kg)" } }
+  },
+  {
+    "name": "BMI境界25ちょうどは肥満1度",
+    "input": { "height": 160, "weight": 64 },
+    "expect": { "details": { "BMI": "25", "判定(日本肥満学会基準)": "肥満(1度)" } }
+  },
+  {
+    "name": "身長未入力はエラー",
+    "input": { "height": null, "weight": 65 },
+    "expect": { "throws": true }
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "1500の20%は300",
+    "input": { "mode": "of", "a": 1500, "b": 20 },
+    "expect": { "summary_contains": "300", "details": { "結果": "300" } }
+  },
+  {
+    "name": "30は150の20%",
+    "input": { "mode": "ratio", "a": 30, "b": 150 },
+    "expect": { "details": { "結果": "20%" } }
+  },
+  {
+    "name": "1は3の33.33%(小数2桁丸め)",
+    "input": { "mode": "ratio", "a": 1, "b": 3 },
+    "expect": { "details": { "結果": "33.33%" } }
+  },
+  {
+    "name": "5000円の20%引きは4000円",
+    "input": { "mode": "discount", "a": 5000, "b": 20 },
+    "expect": { "summary_contains": "4,000", "details": { "20%引き(割引後)": "4,000", "割引額": "1,000", "20%増し(上乗せ後)": "6,000" } }
+  },
+  {
+    "name": "8%引きの小数処理",
+    "input": { "mode": "discount", "a": 1980, "b": 8 },
+    "expect": { "details": { "8%引き(割引後)": "1,821.6" } }
+  },
+  {
+    "name": "0の何%でもゼロ除算エラー",
+    "input": { "mode": "ratio", "a": 10, "b": 0 },
+    "expect": { "throws": true }
+  },
+  {
+    "name": "A未入力はエラー",
+    "input": { "mode": "of", "a": null, "b": 20 },
+    "expect": { "throws": true }
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "name": "2026年は丙午(ひのえうま)",
+    "input": { "year": 2026 },
+    "expect": { "summary_contains": "丙午(ひのえうま)", "details": { "十二支": "午年(うまどし)" } }
+  },
+  {
+    "name": "2025年は乙巳(きのとみ)",
+    "input": { "year": 2025 },
+    "expect": { "summary_contains": "乙巳(きのとみ)" }
+  },
+  {
+    "name": "1966年も丙午(60年周期)",
+    "input": { "year": 1966 },
+    "expect": { "summary_contains": "丙午" }
+  },
+  {
+    "name": "2008年は戊子(つちのえね)",
+    "input": { "year": 2008 },
+    "expect": { "summary_contains": "戊子(つちのえね)", "details": { "十二支": "子年(ねずみどし)" } }
+  },
+  {
+    "name": "1990年は庚午(かのえうま)",
+    "input": { "year": 1990 },
+    "expect": { "summary_contains": "庚午(かのえうま)" }
+  },
+  {
+    "name": "2000年は辰年",
+    "input": { "year": 2000 },
+    "expect": { "details": { "十二支": "辰年(たつどし)", "和暦": "2000年(平成12年)" } }
+  },
+  {
+    "name": "同じ十二支の年の表に12年前後が含まれる",
+    "input": { "year": 2026 },
+    "expect": { "table_includes": ["2014年", "2038年"] }
+  },
+  {
+    "name": "範囲外はエラー",
+    "input": { "year": 1700 },
+    "expect": { "throws": true }
+  },
+  {
+    "name": "未入力はエラー",
+    "input": { "year": null },
+    "expect": { "throws": true }
+  }
+]

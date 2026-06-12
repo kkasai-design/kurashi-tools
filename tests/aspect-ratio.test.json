@@ -1,0 +1,32 @@
+[
+  {
+    "name": "1920x1080は16:9",
+    "input": { "width": 1920, "height": 1080 },
+    "expect": { "summary_contains": "16:9", "details": { "アスペクト比(約分)": "16:9(テレビ・YouTube・フルHD/4K)" } }
+  },
+  {
+    "name": "1080x1920は9:16(縦動画)",
+    "input": { "width": 1080, "height": 1920 },
+    "expect": { "summary_contains": "9:16" }
+  },
+  {
+    "name": "リサイズ計算(1920x1080→幅1280は高さ720)",
+    "input": { "width": 1920, "height": 1080, "new_width": 1280 },
+    "expect": { "details": { "幅1,280pxにリサイズすると": "高さ 720px" } }
+  },
+  {
+    "name": "非標準の比率も約分(1000x750は4:3)",
+    "input": { "width": 1000, "height": 750 },
+    "expect": { "summary_contains": "4:3" }
+  },
+  {
+    "name": "素数同士は約分されない",
+    "input": { "width": 1920, "height": 1081 },
+    "expect": { "summary_contains": "1920:1081" }
+  },
+  {
+    "name": "幅未入力はエラー",
+    "input": { "width": null, "height": 1080 },
+    "expect": { "throws": true }
+  }
+]

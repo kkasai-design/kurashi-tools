@@ -1,0 +1,26 @@
+{
+  "id": "aspect-ratio",
+  "version": 1,
+  "title": "アスペクト比計算(画像リサイズの縦横計算)",
+  "h1": "アスペクト比計算|画像・動画の比率とリサイズ後のサイズがわかる",
+  "category": "convert",
+  "description": "画像や動画の幅×高さからアスペクト比(16:9、4:3など)を自動判定。比率を保ったままリサイズしたときの高さ計算にも対応。サムネイル作成・SNS投稿サイズの確認に。",
+  "keywords": ["アスペクト比 計算", "16:9 サイズ", "画像 リサイズ 計算", "縦横比 計算"],
+  "ui": {
+    "inputs": [
+      { "name": "width", "type": "number", "label": "幅", "min": 1, "placeholder": "例: 1920", "unit": "px" },
+      { "name": "height", "type": "number", "label": "高さ", "min": 1, "placeholder": "例: 1080", "unit": "px" },
+      { "name": "new_width", "type": "number", "label": "リサイズ後の幅(任意)", "min": 1, "placeholder": "例: 1280", "unit": "px", "note": "入力すると、比率を保った場合の高さを計算します" }
+    ],
+    "submit_label": "比率を計算する"
+  },
+  "logic_file": "logic/aspect-ratio.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["percent", "data-capacity"],
+  "monetize": { "rakuten_keyword": null, "cta": null },
+  "publish_after": null,
+  "priority": 14
+}

@@ -1,0 +1,30 @@
+{
+  "id": "data-capacity",
+  "version": 1,
+  "title": "データ容量換算(GB・MB・KB)写真何枚分?",
+  "h1": "データ容量の換算|GB・MB・KBの変換と「写真何枚分?」がわかる",
+  "category": "convert",
+  "description": "GB・MB・KB・TBを相互換算し、「128GBは写真何枚分?」のような身近な目安も表示。スマホ・SDカード・クラウドの容量選びに役立つ無料ツールです。",
+  "keywords": ["GB MB 換算", "1GB 何MB", "128GB 写真 何枚", "データ容量 計算"],
+  "ui": {
+    "inputs": [
+      { "name": "value", "type": "number", "label": "容量の数値", "min": 0.001, "step": "any", "placeholder": "例: 128" },
+      { "name": "unit", "type": "select", "label": "単位", "options": [
+        { "value": "KB", "label": "KB(キロバイト)" },
+        { "value": "MB", "label": "MB(メガバイト)" },
+        { "value": "GB", "label": "GB(ギガバイト)" },
+        { "value": "TB", "label": "TB(テラバイト)" }
+      ], "default": "GB" }
+    ],
+    "submit_label": "容量を換算する"
+  },
+  "logic_file": "logic/data-capacity.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["video-gigas", "aspect-ratio"],
+  "monetize": { "rakuten_keyword": "microSDカード", "cta": null },
+  "publish_after": null,
+  "priority": 18
+}

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "運賃200円・定期7000円・20日利用は定期得",
+    "input": { "fare": 200, "teiki_monthly": 7000, "days_per_month": 20 },
+    "expect": { "summary_contains": "定期券の方が月 1,000円 お得", "details": { "都度払いの月額": "8,000円(往復400円 × 20日)", "損益分岐": "月18日以上使うなら定期がお得" } }
+  },
+  {
+    "name": "週3勤務(12日)なら都度払いが得",
+    "input": { "fare": 200, "teiki_monthly": 7000, "days_per_month": 12 },
+    "expect": { "summary_contains": "都度払いの方が月 2,200円 お得" }
+  },
+  {
+    "name": "ちょうど同額のケース",
+    "input": { "fare": 250, "teiki_monthly": 10000, "days_per_month": 20 },
+    "expect": { "summary_contains": "ちょうど同額" }
+  },
+  {
+    "name": "分岐日数の切り上げ(定期7100円・往復400円は18日)",
+    "input": { "fare": 200, "teiki_monthly": 7100, "days_per_month": 15 },
+    "expect": { "details": { "損益分岐": "月18日以上使うなら定期がお得" } }
+  },
+  {
+    "name": "運賃未入力はエラー",
+    "input": { "fare": null, "teiki_monthly": 7000, "days_per_month": 20 },
+    "expect": { "throws": true }
+  }
+]

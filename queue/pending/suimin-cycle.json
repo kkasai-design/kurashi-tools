@@ -1,0 +1,28 @@
+{
+  "id": "suimin-cycle",
+  "version": 1,
+  "title": "睡眠サイクル計算(スッキリ起きられる時間)",
+  "h1": "睡眠サイクル計算|何時に寝ればスッキリ起きられる?90分サイクルで逆算",
+  "category": "health",
+  "description": "起きたい時刻から「何時に寝ればいいか」を睡眠サイクル(90分)で逆算する無料ツール。寝る時刻からおすすめの起床時刻も計算できます。目覚めスッキリの就寝時間がすぐわかる。",
+  "keywords": ["睡眠サイクル 計算", "何時に寝れば", "90分 睡眠", "起床時間 逆算"],
+  "ui": {
+    "inputs": [
+      { "name": "mode", "type": "radio", "label": "どちらを計算する?", "options": [
+        { "value": "bed_from_wake", "label": "起きる時刻から、寝る時刻を逆算" },
+        { "value": "wake_from_bed", "label": "寝る時刻から、起きる時刻を計算" }
+      ], "default": "bed_from_wake" },
+      { "name": "time", "type": "time", "label": "時刻", "default": "07:00", "note": "起床(または就寝)したい時刻を入力します" }
+    ],
+    "submit_label": "おすすめ時刻を計算する"
+  },
+  "logic_file": "logic/suimin-cycle.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["bmi", "age"],
+  "monetize": { "rakuten_keyword": "枕 快眠", "cta": null },
+  "publish_after": null,
+  "priority": 3
+}

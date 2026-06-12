@@ -1,0 +1,32 @@
+[
+  {
+    "name": "年収400万円の手取りは約320万円",
+    "input": { "income": 400 },
+    "expect": { "summary_contains": "320万円", "details": { "年間の手取り": "約320万円(手取り率 約80%)" } }
+  },
+  {
+    "name": "年収500万円は約395万円",
+    "input": { "income": 500 },
+    "expect": { "details": { "年間の手取り": "約395万円(手取り率 約79%)" } }
+  },
+  {
+    "name": "年収1000万円は手取り率約71%",
+    "input": { "income": 1000 },
+    "expect": { "details": { "年間の手取り": "約710万円(手取り率 約71%)" } }
+  },
+  {
+    "name": "中間年収は補間(450万円)",
+    "input": { "income": 450 },
+    "expect": { "summary_contains": "357.8万円" }
+  },
+  {
+    "name": "月の手取り計算(400万→26.7万)",
+    "input": { "income": 400 },
+    "expect": { "details": { "月の手取り(12分割)": "約26.7万円" } }
+  },
+  {
+    "name": "年収未入力はエラー",
+    "input": { "income": null },
+    "expect": { "throws": true }
+  }
+]

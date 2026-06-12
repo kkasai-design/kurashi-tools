@@ -1,0 +1,27 @@
+[
+  {
+    "name": "ビール500を2本・体重60kgは約6時間40分",
+    "input": { "drink": "beer500", "count": 2, "weight": 60 },
+    "expect": { "summary_contains": "6時間40分", "details": { "純アルコール量": "約40g(基準飲酒量2単位)" } }
+  },
+  {
+    "name": "ビール350を1本・体重70kgは2時間",
+    "input": { "drink": "beer350", "count": 1, "weight": 70 },
+    "expect": { "summary_contains": "2時間" }
+  },
+  {
+    "name": "日本酒2合・体重50kg",
+    "input": { "drink": "sake1go", "count": 2, "weight": 50 },
+    "expect": { "details": { "分解の目安時間": "約8時間38分" } }
+  },
+  {
+    "name": "noteに運転禁止の警告",
+    "input": { "drink": "beer500", "count": 1, "weight": 60 },
+    "expect": { "note_contains": "絶対に運転しない" }
+  },
+  {
+    "name": "体重未入力はエラー",
+    "input": { "drink": "beer500", "count": 2, "weight": null },
+    "expect": { "throws": true }
+  }
+]

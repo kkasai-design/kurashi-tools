@@ -1,0 +1,24 @@
+{
+  "id": "tedori",
+  "version": 1,
+  "title": "手取り計算(年収からの簡易シミュレーション)",
+  "h1": "手取り計算|年収から「実際にもらえる額」を簡易シミュレーション",
+  "category": "money",
+  "description": "年収(額面)を入れるだけで年間・月間の手取り額の目安を簡易計算。税金・社会保険料がどれくらい引かれるかと、年収別の手取り早見表も表示。転職・求人票の比較に。",
+  "keywords": ["手取り 計算", "年収 手取り", "額面 手取り いくら", "手取り 早見表"],
+  "ui": {
+    "inputs": [
+      { "name": "income", "type": "number", "label": "年収(額面・税引き前)", "min": 50, "max": 5000, "placeholder": "例: 400", "unit": "万円", "note": "賞与込みの年間総支給額です" }
+    ],
+    "submit_label": "手取りを計算する"
+  },
+  "logic_file": "logic/tedori.js",
+  "year_dependent": true,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["jikyu-kanzan", "furusato-nozei", "percent"],
+  "monetize": { "rakuten_keyword": null, "cta": null },
+  "publish_after": null,
+  "priority": 30
+}

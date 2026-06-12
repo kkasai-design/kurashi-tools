@@ -1,0 +1,32 @@
+{
+  "id": "furusato-nozei",
+  "version": 1,
+  "title": "ふるさと納税 上限額の簡易計算",
+  "h1": "ふるさと納税の上限額はいくら?|年収と家族構成で簡易シミュレーション",
+  "category": "money",
+  "description": "年収と家族構成を選ぶだけで、ふるさと納税の控除上限額の目安を表示。総務省の目安表に基づく簡易シミュレーターで、使いすぎ防止の「安全圏」金額も表示します。",
+  "keywords": ["ふるさと納税 上限 計算", "ふるさと納税 いくらまで", "ふるさと納税 限度額 年収", "ふるさと納税 シミュレーション"],
+  "ui": {
+    "inputs": [
+      { "name": "income", "type": "number", "label": "年収(額面・万円)", "min": 100, "max": 3000, "placeholder": "例: 500", "unit": "万円" },
+      { "name": "family", "type": "select", "label": "家族構成", "options": [
+        { "value": "single", "label": "独身 または 共働き(配偶者控除なし)" },
+        { "value": "couple", "label": "夫婦(配偶者に収入がない)" },
+        { "value": "dual_child1", "label": "共働き+子1人(高校生)" },
+        { "value": "couple_child1", "label": "夫婦+子1人(高校生)" },
+        { "value": "dual_child2", "label": "共働き+子2人(大学生と高校生)" },
+        { "value": "couple_child2", "label": "夫婦+子2人(大学生と高校生)" }
+      ], "default": "single" }
+    ],
+    "submit_label": "上限額の目安を計算する"
+  },
+  "logic_file": "logic/furusato-nozei.js",
+  "year_dependent": true,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["tedori", "jikyu-kanzan", "percent"],
+  "monetize": { "rakuten_keyword": "ふるさと納税 ランキング", "cta": null },
+  "publish_after": null,
+  "priority": 29
+}

@@ -1,0 +1,223 @@
+/* くらしの計算室 - サイト共通スタイル */
+:root {
+  --c-primary: #0f766e;
+  --c-primary-dark: #115e59;
+  --c-primary-pale: #f0fdfa;
+  --c-accent: #d97706;
+  --c-text: #1f2937;
+  --c-text-sub: #6b7280;
+  --c-bg: #ffffff;
+  --c-bg-soft: #f8fafc;
+  --c-border: #e5e7eb;
+  --c-result-bg: #fffbeb;
+  --c-result-border: #fcd34d;
+  --radius: 10px;
+  --maxw: 760px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --c-primary: #2dd4bf;
+    --c-primary-dark: #5eead4;
+    --c-primary-pale: #134e4a;
+    --c-accent: #fbbf24;
+    --c-text: #e5e7eb;
+    --c-text-sub: #9ca3af;
+    --c-bg: #111827;
+    --c-bg-soft: #1f2937;
+    --c-border: #374151;
+    --c-result-bg: #292524;
+    --c-result-border: #a16207;
+  }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic UI", "Meiryo", sans-serif;
+  color: var(--c-text);
+  background: var(--c-bg);
+  line-height: 1.8;
+  font-size: 16px;
+}
+.container { max-width: var(--maxw); margin: 0 auto; padding: 0 16px; }
+a { color: var(--c-primary); }
+a:hover { color: var(--c-primary-dark); }
+
+/* ヘッダー */
+.site-header { background: var(--c-primary); padding: 10px 0; }
+.header-inner { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 20px; }
+.site-logo { color: #fff; font-size: 1.25rem; font-weight: 700; text-decoration: none; letter-spacing: .02em; }
+.site-logo:hover { color: #ccfbf1; }
+.site-nav { display: flex; flex-wrap: wrap; gap: 2px 14px; }
+.site-nav a { color: #ccfbf1; font-size: .82rem; text-decoration: none; }
+.site-nav a:hover { color: #fff; text-decoration: underline; }
+
+main { padding: 20px 16px 48px; }
+
+/* パンくず */
+.breadcrumb { font-size: .78rem; color: var(--c-text-sub); margin: 0 0 12px; }
+.breadcrumb ol { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; }
+.breadcrumb li + li::before { content: "›"; margin: 0 6px; color: var(--c-text-sub); }
+.breadcrumb a { color: var(--c-text-sub); }
+
+/* 見出し */
+h1 { font-size: 1.45rem; line-height: 1.4; margin: 0 0 10px; }
+h2 { font-size: 1.15rem; border-left: 4px solid var(--c-primary); padding-left: 10px; margin: 36px 0 14px; }
+h3 { font-size: 1rem; margin: 24px 0 8px; }
+.intro { color: var(--c-text-sub); font-size: .95rem; margin: 0 0 18px; }
+
+/* ツールボックス */
+.tool-box {
+  background: var(--c-primary-pale);
+  border: 1.5px solid var(--c-primary);
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  margin: 0 0 18px;
+}
+.field { margin-bottom: 14px; }
+.field label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: 5px; }
+.field input[type="date"], .field input[type="number"], .field input[type="text"],
+.field select, .field textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 16px;
+  border: 1px solid var(--c-border);
+  border-radius: 6px;
+  background: var(--c-bg);
+  color: var(--c-text);
+}
+.field textarea { min-height: 140px; resize: vertical; }
+.field .unit { margin-left: 6px; font-size: .85rem; color: var(--c-text-sub); }
+.field-note { font-size: .78rem; color: var(--c-text-sub); margin-top: 3px; }
+.radio-group { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+.radio-group label { font-weight: 400; display: flex; align-items: center; gap: 5px; margin: 0; }
+.btn-calc {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #fff;
+  background: var(--c-accent);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.btn-calc:hover { filter: brightness(1.08); }
+.btn-calc:active { transform: translateY(1px); }
+
+/* 結果 */
+.result {
+  margin-top: 16px;
+  padding: 16px;
+  background: var(--c-result-bg);
+  border: 1.5px solid var(--c-result-border);
+  border-radius: var(--radius);
+}
+.result-summary { font-size: 1.3rem; font-weight: 700; margin: 0 0 8px; color: var(--c-text); }
+.result-error { color: #dc2626; font-weight: 600; margin: 0; }
+.result table { width: 100%; border-collapse: collapse; margin: 10px 0 0; font-size: .92rem; }
+.result th, .result td { border: 1px solid var(--c-result-border); padding: 7px 10px; text-align: left; }
+.result th { background: rgba(252, 211, 77, .25); font-weight: 600; white-space: nowrap; }
+.result-note { font-size: .82rem; color: var(--c-text-sub); margin: 10px 0 0; }
+.result-highlight { background: rgba(252, 211, 77, .45); font-weight: 700; }
+
+/* シェア */
+.share { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0; }
+.share-btn {
+  font-size: .8rem;
+  padding: 7px 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid var(--c-border);
+  background: var(--c-bg-soft);
+  color: var(--c-text);
+  cursor: pointer;
+  font-family: inherit;
+}
+.share-btn:hover { border-color: var(--c-primary); color: var(--c-primary); }
+
+/* 本文 */
+.usage ol, .usage ul { padding-left: 22px; }
+.explanation table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: .9rem; }
+.explanation th, .explanation td { border: 1px solid var(--c-border); padding: 7px 10px; }
+.explanation th { background: var(--c-bg-soft); }
+
+/* FAQ */
+.faq details {
+  border: 1px solid var(--c-border);
+  border-radius: 8px;
+  margin-bottom: 8px;
+  background: var(--c-bg-soft);
+}
+.faq summary { padding: 12px 14px; font-weight: 600; cursor: pointer; font-size: .93rem; }
+.faq .faq-a { padding: 0 14px 12px; font-size: .92rem; }
+
+/* 関連ツール・カード */
+.tool-cards { display: grid; grid-template-columns: 1fr; gap: 10px; list-style: none; padding: 0; margin: 12px 0; }
+@media (min-width: 560px) { .tool-cards { grid-template-columns: 1fr 1fr; } }
+.tool-card {
+  display: block;
+  padding: 13px 15px;
+  border: 1px solid var(--c-border);
+  border-radius: var(--radius);
+  text-decoration: none;
+  background: var(--c-bg);
+}
+.tool-card:hover { border-color: var(--c-primary); background: var(--c-primary-pale); }
+.tool-card .tc-title { display: block; font-weight: 700; color: var(--c-primary); font-size: .95rem; }
+.tool-card .tc-desc { display: block; font-size: .8rem; color: var(--c-text-sub); margin-top: 3px; line-height: 1.5; }
+
+/* 収益スロット */
+.monetize-slot { margin: 18px 0; }
+.cta-box {
+  border: 1.5px solid var(--c-accent);
+  border-radius: var(--radius);
+  padding: 16px;
+  background: var(--c-bg);
+}
+.cta-box .cta-text { margin: 0 0 10px; font-size: .92rem; }
+.cta-box .cta-btn {
+  display: block;
+  text-align: center;
+  padding: 12px;
+  background: var(--c-accent);
+  color: #fff;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+}
+.cta-box .cta-btn:hover { filter: brightness(1.08); color: #fff; }
+.rakuten-btn {
+  display: block;
+  text-align: center;
+  padding: 11px;
+  border: 1.5px solid #bf0000;
+  color: #bf0000;
+  font-weight: 700;
+  border-radius: 8px;
+  text-decoration: none;
+  font-size: .92rem;
+}
+.rakuten-btn:hover { background: #bf0000; color: #fff; }
+@media (prefers-color-scheme: dark) {
+  .rakuten-btn { border-color: #f87171; color: #f87171; }
+  .rakuten-btn:hover { background: #b91c1c; color: #fff; }
+}
+
+/* index ヒーロー */
+.hero { text-align: center; padding: 18px 0 6px; }
+.hero h1 { font-size: 1.5rem; }
+.hero p { color: var(--c-text-sub); font-size: .92rem; }
+.category-section h2 { margin-top: 30px; }
+.category-link { font-size: .82rem; }
+
+/* ページメタ・フッター */
+.page-meta { font-size: .78rem; color: var(--c-text-sub); margin-top: 30px; border-top: 1px solid var(--c-border); padding-top: 12px; }
+.site-footer { background: var(--c-bg-soft); border-top: 1px solid var(--c-border); padding: 22px 0; margin-top: 20px; }
+.footer-nav { display: flex; flex-wrap: wrap; gap: 6px 18px; font-size: .82rem; margin-bottom: 8px; }
+.copyright { font-size: .78rem; color: var(--c-text-sub); margin: 0; }
+
+/* 固定ページ */
+.static-page h1 { margin-bottom: 18px; }
+.static-page h2 { font-size: 1.05rem; }

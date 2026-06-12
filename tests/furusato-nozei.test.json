@@ -1,0 +1,37 @@
+[
+  {
+    "name": "年収500万・独身は約6.1万円",
+    "input": { "income": 500, "family": "single" },
+    "expect": { "summary_contains": "6.1万円", "details": { "上限の目安": "約61,000円" } }
+  },
+  {
+    "name": "年収400万・夫婦は約3.3万円",
+    "input": { "income": 400, "family": "couple" },
+    "expect": { "details": { "上限の目安": "約33,000円" } }
+  },
+  {
+    "name": "年収450万・独身は補間で約5.2万円",
+    "input": { "income": 450, "family": "single" },
+    "expect": { "details": { "上限の目安": "約52,000円" } }
+  },
+  {
+    "name": "中間値の補間(年収425万・独身)",
+    "input": { "income": 425, "family": "single" },
+    "expect": { "details": { "上限の目安": "約47,000円" } }
+  },
+  {
+    "name": "安全圏は9割",
+    "input": { "income": 500, "family": "single" },
+    "expect": { "details": { "安全圏(目安の9割)": "約55,000円" } }
+  },
+  {
+    "name": "夫婦子2人は大きく下がる",
+    "input": { "income": 500, "family": "couple_child2" },
+    "expect": { "details": { "上限の目安": "約28,000円" } }
+  },
+  {
+    "name": "年収未入力はエラー",
+    "input": { "income": null, "family": "single" },
+    "expect": { "throws": true }
+  }
+]

@@ -1,0 +1,37 @@
+[
+  {
+    "name": "1坪は約3.31㎡・約2.04畳",
+    "input": { "value": 1, "unit": "tsubo" },
+    "expect": { "details": { "坪": "1坪", "平米(㎡)": "3.31㎡", "畳(1.62㎡基準)": "2.04畳" } }
+  },
+  {
+    "name": "100㎡は約30.25坪",
+    "input": { "value": 100, "unit": "m2" },
+    "expect": { "details": { "坪": "30.25坪", "畳(1.62㎡基準)": "61.73畳" } }
+  },
+  {
+    "name": "30坪は約99.17㎡",
+    "input": { "value": 30, "unit": "tsubo" },
+    "expect": { "details": { "平米(㎡)": "99.17㎡" } }
+  },
+  {
+    "name": "6畳は9.72㎡・約2.94坪",
+    "input": { "value": 6, "unit": "jo" },
+    "expect": { "details": { "平米(㎡)": "9.72㎡", "坪": "2.94坪" } }
+  },
+  {
+    "name": "畳規格の換算表が出る",
+    "input": { "value": 10, "unit": "m2" },
+    "expect": { "table_includes": ["京間(本間)", "江戸間(関東間)", "団地間"] }
+  },
+  {
+    "name": "0はエラー",
+    "input": { "value": 0, "unit": "m2" },
+    "expect": { "throws": true }
+  },
+  {
+    "name": "未入力はエラー",
+    "input": { "value": null, "unit": "m2" },
+    "expect": { "throws": true }
+  }
+]

@@ -1,0 +1,22 @@
+[
+  {
+    "name": "300kmを燃費15km/L・170円(片道)",
+    "input": { "distance": 300, "nenpi": 15, "price": 170, "trip": "oneway" },
+    "expect": { "summary_contains": "3,400円", "details": { "必要なガソリン": "約20L", "ガソリン代": "3,400円" } }
+  },
+  {
+    "name": "往復は2倍",
+    "input": { "distance": 300, "nenpi": 15, "price": 170, "trip": "round" },
+    "expect": { "details": { "走行距離(往復)": "600km", "ガソリン代": "6,800円", "片道あたり": "3,400円" } }
+  },
+  {
+    "name": "軽自動車の通勤(20km・20km/L)",
+    "input": { "distance": 20, "nenpi": 20, "price": 170, "trip": "oneway" },
+    "expect": { "details": { "ガソリン代": "170円", "1kmあたり": "8.5円" } }
+  },
+  {
+    "name": "燃費未入力はエラー",
+    "input": { "distance": 300, "nenpi": null, "price": 170, "trip": "oneway" },
+    "expect": { "throws": true }
+  }
+]

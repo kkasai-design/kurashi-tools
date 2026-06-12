@@ -1,0 +1,27 @@
+[
+  {
+    "name": "7000円→3000円・初期3850円は1ヶ月で回収",
+    "input": { "current_monthly": 7000, "new_monthly": 3000, "switch_cost": 3850, "cashback": 0 },
+    "expect": { "summary_contains": "月 4,000円", "details": { "元が取れるまで": "1ヶ月", "1年間の節約額": "44,150円", "2年間の節約額": "92,150円" } }
+  },
+  {
+    "name": "キャッシュバックで即回収",
+    "input": { "current_monthly": 7000, "new_monthly": 3000, "switch_cost": 3850, "cashback": 10000 },
+    "expect": { "details": { "元が取れるまで": "初月から得" } }
+  },
+  {
+    "name": "値上がりケースは警告",
+    "input": { "current_monthly": 3000, "new_monthly": 5000, "switch_cost": 3850, "cashback": 0 },
+    "expect": { "summary_contains": "高くなります" }
+  },
+  {
+    "name": "差額500円・初期費用12000円は24ヶ月",
+    "input": { "current_monthly": 4000, "new_monthly": 3500, "switch_cost": 12000, "cashback": 0 },
+    "expect": { "details": { "元が取れるまで": "24ヶ月" } }
+  },
+  {
+    "name": "現在料金未入力はエラー",
+    "input": { "current_monthly": null, "new_monthly": 3000, "switch_cost": 3850, "cashback": 0 },
+    "expect": { "throws": true }
+  }
+]

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "2024年はうるう年",
+    "input": { "year": 2024 },
+    "expect": { "summary_contains": "うるう年", "details": { "2月の日数": "29日まで" } }
+  },
+  {
+    "name": "2025年は平年",
+    "input": { "year": 2025 },
+    "expect": { "summary_contains": "平年" }
+  },
+  {
+    "name": "2000年は400ルールでうるう年",
+    "input": { "year": 2000 },
+    "expect": { "summary_contains": "うるう年", "details": { "理由": "400で割り切れる年なのでうるう年です(100で割り切れても例外的にうるう年)" } }
+  },
+  {
+    "name": "1900年は100ルールで平年",
+    "input": { "year": 1900 },
+    "expect": { "summary_contains": "平年" }
+  },
+  {
+    "name": "2100年も平年",
+    "input": { "year": 2100 },
+    "expect": { "summary_contains": "平年" }
+  },
+  {
+    "name": "次のうるう年リスト",
+    "input": { "year": 2025 },
+    "expect": { "details": { "この後のうるう年": "2028年、2032年、2036年、2040年、2044年" } }
+  },
+  {
+    "name": "2024年2月29日は木曜日",
+    "input": { "year": 2024 },
+    "expect": { "details": { "2月29日の曜日": "木曜日" } }
+  },
+  {
+    "name": "未入力はエラー",
+    "input": { "year": null },
+    "expect": { "throws": true }
+  }
+]

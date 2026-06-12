@@ -1,0 +1,22 @@
+[
+  {
+    "name": "月24L・サーバー4000円・ボトル80円",
+    "input": { "liters_per_month": 24, "server_monthly": 4000, "bottle_price": 80 },
+    "expect": { "details": { "ウォーターサーバー(月)": "4,000円", "ペットボトル500ml×48本(月)": "3,840円", "月の差額(サーバー − 500ml)": "+160円" } }
+  },
+  {
+    "name": "大量に飲む家庭はサーバーが安くなることも",
+    "input": { "liters_per_month": 60, "server_monthly": 4000, "bottle_price": 80 },
+    "expect": { "summary_contains": "安い", "details": { "月の差額(サーバー − 500ml)": "−5,600円" } }
+  },
+  {
+    "name": "年間差額の計算",
+    "input": { "liters_per_month": 24, "server_monthly": 4000, "bottle_price": 80 },
+    "expect": { "details": { "年間の差額": "+1,920円" } }
+  },
+  {
+    "name": "水量未入力はエラー",
+    "input": { "liters_per_month": null, "server_monthly": 4000, "bottle_price": 80 },
+    "expect": { "throws": true }
+  }
+]

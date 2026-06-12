@@ -1,0 +1,25 @@
+{
+  "id": "ninshin-shusan",
+  "version": 1,
+  "title": "出産予定日・妊娠週数計算",
+  "h1": "出産予定日の計算|最終月経から予定日と今の妊娠週数がわかる",
+  "category": "health",
+  "description": "最終月経開始日を入れるだけで出産予定日と現在の妊娠週数・月数を自動計算。安定期や正期産入りの日付など妊娠中の節目カレンダーつき。※医師の診断に代わるものではありません。",
+  "keywords": ["出産予定日 計算", "妊娠週数 計算", "妊娠 何週", "安定期 いつから"],
+  "ui": {
+    "inputs": [
+      { "name": "lmp", "type": "date", "label": "最終月経の開始日", "note": "最後に来た生理が始まった日です" },
+      { "name": "asof", "type": "date", "label": "基準日(今日)", "default": "today" }
+    ],
+    "submit_label": "予定日と週数を計算する"
+  },
+  "logic_file": "logic/ninshin-shusan.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["sankyu-ikukyu", "kazoedoshi", "days-between"],
+  "monetize": { "rakuten_keyword": "マタニティ", "cta": null },
+  "publish_after": null,
+  "priority": 25
+}

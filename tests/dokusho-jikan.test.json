@@ -1,0 +1,27 @@
+[
+  {
+    "name": "300ページ標準速度は約4時間33分",
+    "input": { "pages": 300, "speed": "normal" },
+    "expect": { "summary_contains": "4時間33分" }
+  },
+  {
+    "name": "300ページ速読は約2時間47分",
+    "input": { "pages": 300, "speed": "fast" },
+    "expect": { "summary_contains": "2時間47分" }
+  },
+  {
+    "name": "1日30分なら何日かかるか",
+    "input": { "pages": 300, "speed": "normal", "minutes_per_day": 30 },
+    "expect": { "details": { "1日30分読む場合": "約10日で読了" } }
+  },
+  {
+    "name": "短い本は分表示",
+    "input": { "pages": 60, "speed": "normal" },
+    "expect": { "summary_contains": "55分" }
+  },
+  {
+    "name": "ページ数未入力はエラー",
+    "input": { "pages": null, "speed": "normal" },
+    "expect": { "throws": true }
+  }
+]

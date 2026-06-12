@@ -1,0 +1,28 @@
+{
+  "id": "sankyu-ikukyu",
+  "version": 1,
+  "title": "産休・育休期間の計算",
+  "h1": "産休・育休はいつから?|出産予定日から休業期間を自動計算",
+  "category": "life",
+  "description": "出産予定日を入れるだけで、産前休業の開始日・産後休業の期間・育児休業の期限(1歳・1歳半・2歳)を自動計算。双子など多胎妊娠の14週前にも対応した無料ツール。",
+  "keywords": ["産休 いつから 計算", "育休 期間 計算", "産前産後休業 計算", "育休 1歳 いつまで"],
+  "ui": {
+    "inputs": [
+      { "name": "edd", "type": "date", "label": "出産予定日" },
+      { "name": "twins", "type": "radio", "label": "多胎妊娠(双子以上)?", "options": [
+        { "value": "no", "label": "いいえ(単胎)" },
+        { "value": "yes", "label": "はい(多胎・産前14週)" }
+      ], "default": "no" }
+    ],
+    "submit_label": "産休・育休の期間を計算する"
+  },
+  "logic_file": "logic/sankyu-ikukyu.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["ninshin-shusan", "days-between", "jikyu-kanzan"],
+  "monetize": { "rakuten_keyword": "マタニティ パジャマ", "cta": null },
+  "publish_after": null,
+  "priority": 27
+}

@@ -1,0 +1,32 @@
+[
+  {
+    "name": "1000円の税込(10%)は1100円",
+    "input": { "amount": 1000, "rate": "10", "mode": "add" },
+    "expect": { "summary_contains": "1,100円", "details": { "消費税額": "100円", "税込価格": "1,100円" } }
+  },
+  {
+    "name": "1000円の税込(8%軽減)は1080円",
+    "input": { "amount": 1000, "rate": "8", "mode": "add" },
+    "expect": { "details": { "税込価格": "1,080円" } }
+  },
+  {
+    "name": "1100円から税抜は1000円",
+    "input": { "amount": 1100, "rate": "10", "mode": "remove" },
+    "expect": { "details": { "税抜価格": "1,000円", "消費税額": "100円" } }
+  },
+  {
+    "name": "108円から税抜(8%)は100円",
+    "input": { "amount": 108, "rate": "8", "mode": "remove" },
+    "expect": { "details": { "税抜価格": "100円" } }
+  },
+  {
+    "name": "端数の四捨五入(333円の10%)",
+    "input": { "amount": 333, "rate": "10", "mode": "add" },
+    "expect": { "details": { "消費税額": "33円", "税込価格": "366円" } }
+  },
+  {
+    "name": "金額未入力はエラー",
+    "input": { "amount": null, "rate": "10", "mode": "add" },
+    "expect": { "throws": true }
+  }
+]

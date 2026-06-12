@@ -1,0 +1,43 @@
+{
+  "id": "koden",
+  "version": 1,
+  "title": "香典・ご祝儀の相場チェッカー",
+  "h1": "香典・ご祝儀の相場|関係と年代を選ぶだけで金額の目安がわかる",
+  "category": "life",
+  "description": "故人やお相手との関係・自分の年代を選ぶだけで、香典・結婚式のご祝儀の相場金額を表示。マナー(避けるべき金額・表書き・新札の扱い)の解説つき無料ツール。",
+  "keywords": ["香典 相場", "ご祝儀 相場", "香典 いくら", "結婚式 ご祝儀 金額"],
+  "ui": {
+    "inputs": [
+      { "name": "type", "type": "radio", "label": "どちらを調べる?", "options": [
+        { "value": "koden", "label": "香典(お葬式・お通夜)" },
+        { "value": "goshugi", "label": "ご祝儀(結婚式)" }
+      ], "default": "koden" },
+      { "name": "relation", "type": "select", "label": "お相手との関係", "options": [
+        { "value": "parent", "label": "自分の親(香典)" },
+        { "value": "sibling", "label": "兄弟姉妹" },
+        { "value": "grandparent", "label": "祖父母(香典)" },
+        { "value": "uncle", "label": "おじ・おば(香典)" },
+        { "value": "relative", "label": "その他の親戚" },
+        { "value": "boss", "label": "上司(香典)/部下・後輩(祝儀)" },
+        { "value": "coworker", "label": "同僚" },
+        { "value": "friend", "label": "友人・知人" },
+        { "value": "neighbor", "label": "ご近所(香典)" }
+      ], "default": "friend" },
+      { "name": "age", "type": "radio", "label": "あなたの年代", "options": [
+        { "value": "20s", "label": "20代" },
+        { "value": "30s", "label": "30代" },
+        { "value": "40s+", "label": "40代以上" }
+      ], "default": "30s" }
+    ],
+    "submit_label": "相場を調べる"
+  },
+  "logic_file": "logic/koden.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["kekkon-kinenbi", "warikan", "choju-iwai"],
+  "monetize": { "rakuten_keyword": "袱紗 慶弔両用", "cta": null },
+  "publish_after": null,
+  "priority": 24
+}

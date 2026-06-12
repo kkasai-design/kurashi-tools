@@ -1,0 +1,22 @@
+[
+  {
+    "name": "軽自動車・8000km・駐車場なし",
+    "input": { "car_type": "kei", "annual_km": 8000, "nenpi": 20, "gas_price": 170, "parking": 0, "insurance": 60000 },
+    "expect": { "details": { "自動車税(年)": "10,800円", "ガソリン代(年)": "68,000円(8,000km ÷ 20km/L × 170円)", "合計(年)": "182,625円" } }
+  },
+  {
+    "name": "ミドルカー・10000km・駐車場月1万",
+    "input": { "car_type": "middle", "annual_km": 10000, "nenpi": 14, "gas_price": 170, "parking": 10000, "insurance": 60000 },
+    "expect": { "summary_contains": "396,254円" }
+  },
+  {
+    "name": "走行0kmでも固定費はかかる",
+    "input": { "car_type": "compact", "annual_km": 0, "nenpi": 17, "gas_price": 170, "parking": 0, "insurance": 60000 },
+    "expect": { "details": { "ガソリン代(年)": "0円(0km ÷ 17km/L × 170円)", "合計(年)": "144,325円" } }
+  },
+  {
+    "name": "車タイプ未選択はエラー",
+    "input": { "car_type": "", "annual_km": 8000 },
+    "expect": { "throws": true }
+  }
+]

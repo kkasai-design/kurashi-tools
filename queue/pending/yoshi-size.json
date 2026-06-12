@@ -1,0 +1,39 @@
+{
+  "id": "yoshi-size",
+  "version": 1,
+  "title": "用紙サイズ早見表(A4・B5は何センチ?)",
+  "h1": "用紙サイズ一覧|A4・A3・B5は何cm?mm・インチ換算つき早見表",
+  "category": "convert",
+  "description": "A判(A0〜A6)・B判(B0〜B6)の用紙サイズをmm・cm・インチで表示。「A4って何センチ?」「B5とA5どっちが大きい?」が早見表で一目でわかる無料ツール。",
+  "keywords": ["A4 サイズ 何センチ", "用紙サイズ 一覧", "B5 大きさ", "A3 サイズ"],
+  "ui": {
+    "inputs": [
+      { "name": "size", "type": "select", "label": "調べたい用紙サイズ", "options": [
+        { "value": "A4", "label": "A4(コピー用紙)" },
+        { "value": "A3", "label": "A3" },
+        { "value": "A5", "label": "A5" },
+        { "value": "A6", "label": "A6" },
+        { "value": "A2", "label": "A2" },
+        { "value": "A1", "label": "A1" },
+        { "value": "A0", "label": "A0" },
+        { "value": "B5", "label": "B5(大学ノート)" },
+        { "value": "B4", "label": "B4" },
+        { "value": "B6", "label": "B6" },
+        { "value": "B3", "label": "B3" },
+        { "value": "B2", "label": "B2" },
+        { "value": "B1", "label": "B1" },
+        { "value": "B0", "label": "B0" }
+      ], "default": "A4" }
+    ],
+    "submit_label": "サイズを調べる"
+  },
+  "logic_file": "logic/yoshi-size.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["tsubo-heibei", "aspect-ratio", "moji-count"],
+  "monetize": { "rakuten_keyword": "コピー用紙 A4", "cta": null },
+  "publish_after": null,
+  "priority": 17
+}

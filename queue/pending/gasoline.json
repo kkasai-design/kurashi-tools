@@ -1,0 +1,30 @@
+{
+  "id": "gasoline",
+  "version": 1,
+  "title": "ガソリン代計算(距離と燃費から)",
+  "h1": "ガソリン代計算|距離・燃費・単価からドライブの燃料代がわかる",
+  "category": "money",
+  "description": "走る距離と車の燃費、ガソリン単価を入れるだけで、ドライブや帰省のガソリン代を自動計算。往復計算や1kmあたりのコストにも対応した無料ツールです。",
+  "keywords": ["ガソリン代 計算", "ガソリン代 距離", "車 燃料代", "ドライブ 費用"],
+  "ui": {
+    "inputs": [
+      { "name": "distance", "type": "number", "label": "距離", "min": 0.1, "step": "any", "placeholder": "例: 300", "unit": "km" },
+      { "name": "trip", "type": "radio", "label": "片道/往復", "options": [
+        { "value": "oneway", "label": "片道" },
+        { "value": "round", "label": "往復" }
+      ], "default": "oneway" },
+      { "name": "nenpi", "type": "number", "label": "車の燃費", "min": 1, "max": 60, "step": "any", "placeholder": "例: 15", "unit": "km/L", "note": "実燃費の目安: 軽20、コンパクト18、ミニバン12、SUV10前後" },
+      { "name": "price", "type": "number", "label": "ガソリン単価", "min": 50, "max": 400, "step": "any", "default": 170, "unit": "円/L" }
+    ],
+    "submit_label": "ガソリン代を計算する"
+  },
+  "logic_file": "logic/gasoline.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["denkidai", "warikan", "percent"],
+  "monetize": { "rakuten_keyword": "車載 グッズ", "cta": null },
+  "publish_after": null,
+  "priority": 7
+}

@@ -1,0 +1,24 @@
+{
+  "id": "uruudoshi",
+  "version": 1,
+  "title": "うるう年判定ツール(計算ルールつき)",
+  "h1": "うるう年判定|○年はうるう年?次のうるう年はいつ?",
+  "category": "date",
+  "description": "西暦を入れるだけでうるう年かどうかを判定。「なぜうるう年なのか」のルール解説と、次のうるう年5回分のリストつき。2月29日の曜日もわかる無料ツールです。",
+  "keywords": ["うるう年 判定", "うるう年 いつ", "閏年 計算", "うるう年 一覧"],
+  "ui": {
+    "inputs": [
+      { "name": "year", "type": "number", "label": "調べたい年(西暦)", "min": 1, "max": 9999, "placeholder": "例: 2028" }
+    ],
+    "submit_label": "うるう年か判定する"
+  },
+  "logic_file": "logic/uruudoshi.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["age", "days-between", "youbi"],
+  "monetize": { "rakuten_keyword": null, "cta": null },
+  "publish_after": null,
+  "priority": 13
+}

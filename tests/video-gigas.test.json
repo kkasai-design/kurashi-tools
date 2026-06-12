@@ -1,0 +1,32 @@
+[
+  {
+    "name": "フルHDを1日60分は月75GB",
+    "input": { "quality": "q1080", "minutes_per_day": 60 },
+    "expect": { "summary_contains": "75GB", "details": { "1日あたり": "約2.5GB", "1ヶ月あたり(30日)": "約75GB" } }
+  },
+  {
+    "name": "480pを1日30分は月10.5GB",
+    "input": { "quality": "q480", "minutes_per_day": 30 },
+    "expect": { "details": { "1日あたり": "約0.35GB", "1ヶ月あたり(30日)": "約10.5GB" } }
+  },
+  {
+    "name": "20GBプランの持ち日数(720p 60分=1.3GB/日)",
+    "input": { "quality": "q720", "minutes_per_day": 60 },
+    "expect": { "table_includes": ["約15.4日で上限"] }
+  },
+  {
+    "name": "4Kはギガ即死",
+    "input": { "quality": "q4k", "minutes_per_day": 120 },
+    "expect": { "summary_contains": "420GB" }
+  },
+  {
+    "name": "低画質×短時間なら3GBでも1ヶ月",
+    "input": { "quality": "q360", "minutes_per_day": 15 },
+    "expect": { "table_includes": ["1ヶ月もつ"] }
+  },
+  {
+    "name": "時間未入力はエラー",
+    "input": { "quality": "q720", "minutes_per_day": null },
+    "expect": { "throws": true }
+  }
+]

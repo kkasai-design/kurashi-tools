@@ -1,0 +1,20 @@
+{
+  "site_name": "くらしの計算室",
+  "tagline": "毎日の「ちょっと計算したい」を3秒で",
+  "base_url": "https://kkasai-design.github.io/kurashi-tools",
+  "base_path": "/kurashi-tools",
+  "lang": "ja",
+  "author": "くらしの計算室 運営部",
+  "gsc_meta_content": "",
+  "analytics_head_html": "",
+  "contact_form_url": "",
+  "indexnow_key": "8f3a1c9e6b2d4a7f9c0e5b8d1a4f7c2e",
+  "categories": {
+    "date": {"name": "日付・暦", "description": "年齢・和暦・日数など、日付や暦にまつわる計算ツール"},
+    "money": {"name": "お金", "description": "割り勘・時給換算・料金比較など、お金の計算ツール"},
+    "health": {"name": "健康", "description": "BMI・睡眠・カロリーなど、健康にまつわる計算ツール"},
+    "life": {"name": "生活", "description": "ペット年齢・レシピ換算など、暮らしに役立つ計算ツール"},
+    "text": {"name": "文章", "description": "文字数カウントなど、文章まわりの便利ツール"},
+    "convert": {"name": "単位換算", "description": "坪・畳・データ容量など、単位の換算ツール"}
+  }
+}

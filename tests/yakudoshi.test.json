@@ -1,0 +1,57 @@
+[
+  {
+    "name": "男性1985年生まれは2026年に大厄(数え42)",
+    "input": { "sex": "male", "birth_year": 1985, "asof_year": 2026 },
+    "expect": { "summary_contains": "本厄(大厄)", "details": { "数え年": "42歳(2026年)" } }
+  },
+  {
+    "name": "男性1986年生まれは2026年に前厄",
+    "input": { "sex": "male", "birth_year": 1986, "asof_year": 2026 },
+    "expect": { "summary_contains": "前厄" }
+  },
+  {
+    "name": "男性1984年生まれは2026年に後厄",
+    "input": { "sex": "male", "birth_year": 1984, "asof_year": 2026 },
+    "expect": { "summary_contains": "後厄" }
+  },
+  {
+    "name": "女性1994年生まれは2026年に大厄(数え33)",
+    "input": { "sex": "female", "birth_year": 1994, "asof_year": 2026 },
+    "expect": { "summary_contains": "本厄(大厄)" }
+  },
+  {
+    "name": "女性1990年生まれは2026年に本厄(数え37)",
+    "input": { "sex": "female", "birth_year": 1990, "asof_year": 2026 },
+    "expect": { "summary_contains": "本厄", "details": { "数え年": "37歳(2026年)" } }
+  },
+  {
+    "name": "男性1990年生まれは2026年は厄年でない・次は2031年",
+    "input": { "sex": "male", "birth_year": 1990, "asof_year": 2026 },
+    "expect": { "summary_contains": "厄年ではありません", "details": { "次の本厄": "2031年(数え42歳・大厄)" } }
+  },
+  {
+    "name": "女性2008年生まれは2026年に本厄(数え19)",
+    "input": { "sex": "female", "birth_year": 2008, "asof_year": 2026 },
+    "expect": { "summary_contains": "本厄" }
+  },
+  {
+    "name": "61歳を過ぎたら次の本厄なし",
+    "input": { "sex": "male", "birth_year": 1950, "asof_year": 2026 },
+    "expect": { "details": { "次の本厄": "ありません(61歳の厄年を過ぎています)" } }
+  },
+  {
+    "name": "早見表に大厄行がある",
+    "input": { "sex": "male", "birth_year": 1985, "asof_year": 2026 },
+    "expect": { "table_includes": ["本厄(大厄)", "数え42歳", "1985年生まれ"] }
+  },
+  {
+    "name": "性別未選択はエラー",
+    "input": { "sex": "", "birth_year": 1985, "asof_year": 2026 },
+    "expect": { "throws": true }
+  },
+  {
+    "name": "生年未入力はエラー",
+    "input": { "sex": "male", "birth_year": null, "asof_year": 2026 },
+    "expect": { "throws": true }
+  }
+]

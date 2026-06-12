@@ -1,0 +1,35 @@
+{
+  "id": "mochu-hagaki",
+  "version": 1,
+  "title": "喪中はがきの範囲・時期チェッカー",
+  "h1": "喪中はがきはいつ・誰まで?|続柄から喪中の範囲と出す時期がわかる",
+  "category": "life",
+  "description": "亡くなった方との続柄を選ぶだけで、喪中(年賀欠礼)にすべきか・どの年の年賀状を控えるか・喪中はがきを出す時期を表示。寒中見舞いの時期まで一目でわかる無料ツール。",
+  "keywords": ["喪中はがき いつまで", "喪中 範囲 どこまで", "喪中はがき 時期", "年賀状 喪中"],
+  "ui": {
+    "inputs": [
+      { "name": "relation", "type": "select", "label": "亡くなった方との関係", "options": [
+        { "value": "spouse", "label": "配偶者(夫・妻)" },
+        { "value": "parent", "label": "父母" },
+        { "value": "parent_in_law", "label": "配偶者の父母" },
+        { "value": "child", "label": "子ども" },
+        { "value": "grandparent", "label": "祖父母" },
+        { "value": "sibling", "label": "兄弟姉妹" },
+        { "value": "grandchild", "label": "孫" },
+        { "value": "uncle", "label": "おじ・おば" },
+        { "value": "other", "label": "その他の親族" }
+      ], "default": "parent" },
+      { "name": "death_date", "type": "date", "label": "亡くなった日" }
+    ],
+    "submit_label": "喪中の扱いを調べる"
+  },
+  "logic_file": "logic/mochu-hagaki.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["koden", "kazoedoshi", "eto"],
+  "monetize": { "rakuten_keyword": "喪中はがき 印刷", "cta": null },
+  "publish_after": "2026-09-01",
+  "priority": 26
+}

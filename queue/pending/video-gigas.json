@@ -1,0 +1,31 @@
+{
+  "id": "video-gigas",
+  "version": 1,
+  "title": "動画のギガ消費量計算(YouTube・サブスク)",
+  "h1": "動画は何ギガ使う?|画質×視聴時間でデータ通信量を計算",
+  "category": "convert",
+  "description": "YouTubeや動画サブスクが1ヶ月で何ギガ消費するかを画質別に計算。「20GBプランで足りる?」「4Kだと何GB?」がすぐわかる無料ツール。ギガ不足対策の判断に。",
+  "keywords": ["動画 ギガ 消費", "YouTube 通信量", "動画 何ギガ", "ギガ 足りない"],
+  "ui": {
+    "inputs": [
+      { "name": "quality", "type": "select", "label": "動画の画質", "options": [
+        { "value": "q360", "label": "360p(低画質)" },
+        { "value": "q480", "label": "480p(SD・スマホ標準)" },
+        { "value": "q720", "label": "720p(HD)" },
+        { "value": "q1080", "label": "1080p(フルHD)" },
+        { "value": "q4k", "label": "4K" }
+      ], "default": "q720" },
+      { "name": "minutes_per_day", "type": "number", "label": "1日の視聴時間", "min": 1, "max": 1440, "default": 60, "unit": "分" }
+    ],
+    "submit_label": "通信量を計算する"
+  },
+  "logic_file": "logic/video-gigas.js",
+  "year_dependent": false,
+  "content": {
+    "intro": null, "usage": null, "usage_html": null, "explanation_html": null, "explanation_sections": null, "faq": null, "published_at": null, "updated_at": null, "model": null
+  },
+  "related": ["denkidai", "percent"],
+  "monetize": { "rakuten_keyword": null, "cta": { "text": "動画をよく見るなら、ギガを気にしなくていい固定回線(光回線)が結局いちばん安上がりです。スマホのプランを下げられる分、トータルの通信費も下がります。", "url": "", "button": "光回線の料金を比較してみる" } },
+  "publish_after": null,
+  "priority": 9
+}

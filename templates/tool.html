@@ -1,0 +1,40 @@
+{{breadcrumb}}
+<article class="tool-page">
+<h1>{{h1}}</h1>
+<p class="intro">{{intro}}</p>
+<section class="tool-box" aria-label="計算ツール">
+  <form id="tool-form" novalidate>
+{{form_html}}
+  </form>
+  <div id="result" class="result" aria-live="polite" hidden></div>
+</section>
+{{slot_below_result}}
+<div class="share" aria-label="このページをシェア">
+  <a class="share-btn share-x" href="https://twitter.com/intent/tweet?url={{share_url}}&amp;text={{share_text}}" target="_blank" rel="noopener nofollow">Xでシェア</a>
+  <a class="share-btn share-line" href="https://social-plugins.line.me/lineit/share?url={{share_url}}" target="_blank" rel="noopener nofollow">LINEで送る</a>
+  <button type="button" class="share-btn share-copy" data-url="{{page_url}}">URLをコピー</button>
+</div>
+<section class="usage">
+<h2>使い方</h2>
+{{usage_html}}
+</section>
+<section class="explanation">
+{{explanation_html}}
+</section>
+{{slot_before_faq}}
+<section class="faq">
+<h2>よくある質問</h2>
+{{faq_html}}
+</section>
+<section class="related">
+<h2>関連ツール</h2>
+{{related_html}}
+</section>
+{{slot_article_bottom}}
+<p class="page-meta">最終更新: {{updated_date}} | <a href="{{base_path}}/disclaimer/">免責事項</a></p>
+</article>
+<script type="module">
+import { initTool } from "{{base_path}}/assets/js/runtime.js";
+import { calc } from "{{base_path}}/logic/{{tool_id}}.js";
+initTool(calc, {{realtime}});
+</script>

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "単身荷物少・同市内・通常期は2.8〜4.4万円",
+    "input": { "household": "single_light", "distance": "0", "season": "normal" },
+    "expect": { "summary_contains": "2.8万円〜4.4万円", "details": { "費用の目安": "2.8万円〜4.4万円(中心値 3.5万円)" } }
+  },
+  {
+    "name": "繁忙期は約1.45倍",
+    "input": { "household": "single_light", "distance": "0", "season": "busy" },
+    "expect": { "summary_contains": "繁忙期", "details": { "費用の目安": "4.1万円〜6.3万円(中心値 5.1万円)" } }
+  },
+  {
+    "name": "家族・遠距離・通常期",
+    "input": { "household": "family", "distance": "3", "season": "normal" },
+    "expect": { "details": { "費用の目安": "15.2万円〜23.8万円(中心値 19万円)" } }
+  },
+  {
+    "name": "距離別の表が出る",
+    "input": { "household": "couple", "distance": "1", "season": "normal" },
+    "expect": { "table_includes": ["同市区町村内(〜15km)", "遠距離(500km前後)"] }
+  },
+  {
+    "name": "世帯未選択はエラー",
+    "input": { "household": "", "distance": "0", "season": "normal" },
+    "expect": { "throws": true }
+  }
+]

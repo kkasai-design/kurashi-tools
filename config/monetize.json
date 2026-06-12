@@ -1,0 +1,19 @@
+{
+  "_readme": "このファイルに広告タグ・アフィリエイトIDを貼ると、翌日の自動ビルドで全ページに反映されます。空欄のスロットは何も表示されません(レイアウトは崩れません)。",
+  "rakuten": {
+    "affiliate_id": "",
+    "label": "楽天市場で探す"
+  },
+  "html_blocks": {
+    "_readme": "忍者AdMaxやAdSenseの広告タグをここに貼ります。admax_rect=記事内レクタングル、free_bottom=記事下フリー枠",
+    "admax_rect": "",
+    "free_bottom": ""
+  },
+  "slots": {
+    "below_result": ["cta", "rakuten"],
+    "before_faq": ["html:admax_rect"],
+    "article_bottom": ["html:free_bottom"]
+  },
+  "adsense_head_tag": "",
+  "ads_txt": ""
+}

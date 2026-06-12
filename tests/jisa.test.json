@@ -1,0 +1,37 @@
+[
+  {
+    "name": "日本12時のニューヨークは前日22時",
+    "input": { "city": "ny", "time": "12:00" },
+    "expect": { "summary_contains": "22:00(前日)", "details": { "時差": "日本より14時間遅れている" } }
+  },
+  {
+    "name": "日本12時のロンドンは3時",
+    "input": { "city": "london", "time": "12:00" },
+    "expect": { "summary_contains": "3:00" }
+  },
+  {
+    "name": "シドニーは1時間進み",
+    "input": { "city": "sydney", "time": "12:00" },
+    "expect": { "summary_contains": "13:00", "details": { "時差": "日本より1時間進んでいる" } }
+  },
+  {
+    "name": "インドは5.5時間遅れ(30分単位)",
+    "input": { "city": "delhi", "time": "12:00" },
+    "expect": { "summary_contains": "8:30", "details": { "時差": "日本より3.5時間遅れている" } }
+  },
+  {
+    "name": "深夜0時のロサンゼルスは前日7時",
+    "input": { "city": "la", "time": "0:00" },
+    "expect": { "summary_contains": "7:00(前日)" }
+  },
+  {
+    "name": "オークランドで日付が翌日へ",
+    "input": { "city": "auckland", "time": "23:00" },
+    "expect": { "summary_contains": "2:00(翌日)" }
+  },
+  {
+    "name": "都市未選択はエラー",
+    "input": { "city": "", "time": "12:00" },
+    "expect": { "throws": true }
+  }
+]

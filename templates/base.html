@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{{title}}</title>
+<meta name="description" content="{{description}}">
+<link rel="canonical" href="{{canonical}}">
+{{gsc_meta}}<meta property="og:type" content="{{og_type}}">
+<meta property="og:title" content="{{og_title}}">
+<meta property="og:description" content="{{description}}">
+<meta property="og:url" content="{{canonical}}">
+<meta property="og:site_name" content="{{site_name}}">
+<meta property="og:image" content="{{og_image}}">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="{{base_path}}/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="{{base_path}}/assets/css/site.css">
+<link rel="alternate" type="application/rss+xml" title="{{site_name}} 新着ツール" href="{{base_path}}/rss.xml">
+{{jsonld}}{{adsense_head}}{{analytics}}</head>
+<body>
+<header class="site-header">
+  <div class="container header-inner">
+    <a class="site-logo" href="{{base_path}}/">{{site_name}}</a>
+    <nav class="site-nav" aria-label="カテゴリ">
+      {{header_nav}}
+    </nav>
+  </div>
+</header>
+<main class="container">
+{{content}}
+</main>
+<footer class="site-footer">
+  <div class="container">
+    <nav class="footer-nav" aria-label="サイト情報">
+      <a href="{{base_path}}/about/">運営者情報</a>
+      <a href="{{base_path}}/privacy/">プライバシーポリシー</a>
+      <a href="{{base_path}}/disclaimer/">免責事項</a>
+      <a href="{{base_path}}/contact/">お問い合わせ</a>
+    </nav>
+    <p class="copyright">&copy; {{year}} {{site_name}}</p>
+  </div>
+</footer>
+</body>
+</html>

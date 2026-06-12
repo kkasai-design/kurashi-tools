@@ -1,0 +1,32 @@
+[
+  {
+    "name": "A4は210x297mm",
+    "input": { "size": "A4" },
+    "expect": { "summary_contains": "210×297mm", "details": { "寸法(mm)": "210 × 297mm", "半分に折ると": "A5サイズ" } }
+  },
+  {
+    "name": "B5は182x257mm",
+    "input": { "size": "B5" },
+    "expect": { "details": { "寸法(mm)": "182 × 257mm" } }
+  },
+  {
+    "name": "A0は841x1189mm",
+    "input": { "size": "A0" },
+    "expect": { "details": { "寸法(mm)": "841 × 1189mm", "半分に折ると": "A1サイズ" } }
+  },
+  {
+    "name": "A6の半分はサイズ表外",
+    "input": { "size": "A6" },
+    "expect": { "details": { "半分に折ると": "—" } }
+  },
+  {
+    "name": "全サイズの表が出る",
+    "input": { "size": "A4" },
+    "expect": { "table_includes": ["B0", "1030 × 1456mm", "コピー用紙・ビジネス文書の標準"] }
+  },
+  {
+    "name": "未選択はエラー",
+    "input": { "size": "" },
+    "expect": { "throws": true }
+  }
+]

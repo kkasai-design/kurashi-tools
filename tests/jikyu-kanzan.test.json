@@ -1,0 +1,37 @@
+[
+  {
+    "name": "年収400万円(8h×週5)は時給約1923円",
+    "input": { "mode": "from_annual", "amount": 400, "hours_per_day": 8, "days_per_week": 5 },
+    "expect": { "summary_contains": "1,923円", "details": { "時給": "1,923円", "年収換算": "4,000,000円(年2,080時間)" } }
+  },
+  {
+    "name": "時給1500円(8h×週5)は年収約312万円",
+    "input": { "mode": "from_hourly", "amount": 1500, "hours_per_day": 8, "days_per_week": 5 },
+    "expect": { "summary_contains": "約312万円", "details": { "日給": "12,000円(8時間/日)", "年収換算": "3,120,000円(年2,080時間)" } }
+  },
+  {
+    "name": "月給30万円(8h×週5)は時給約1731円",
+    "input": { "mode": "from_monthly", "amount": 30, "hours_per_day": 8, "days_per_week": 5 },
+    "expect": { "details": { "時給": "1,731円", "月収換算": "300,000円" } }
+  },
+  {
+    "name": "パート(5h×週3)の時給1200円は年収約93.6万円",
+    "input": { "mode": "from_hourly", "amount": 1200, "hours_per_day": 5, "days_per_week": 3 },
+    "expect": { "details": { "年収換算": "936,000円(年780時間)" } }
+  },
+  {
+    "name": "金額未入力はエラー",
+    "input": { "mode": "from_annual", "amount": null, "hours_per_day": 8, "days_per_week": 5 },
+    "expect": { "throws": true }
+  },
+  {
+    "name": "労働時間0はエラー",
+    "input": { "mode": "from_annual", "amount": 400, "hours_per_day": 0, "days_per_week": 5 },
+    "expect": { "throws": true }
+  },
+  {
+    "name": "週8日はエラー",
+    "input": { "mode": "from_annual", "amount": 400, "hours_per_day": 8, "days_per_week": 8 },
+    "expect": { "throws": true }
+  }
+]
