@@ -20,7 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Generate content (Gemini)
         env:
@@ -39,6 +39,7 @@ jobs:
           git config user.email "kurashi-bot@users.noreply.github.com"
           git add content queue state
           git commit -m "daily: $(date -u +%Y-%m-%d)" || echo "no content changes"
+          git pull --rebase origin main
           git push
 
       - name: Configure Pages
