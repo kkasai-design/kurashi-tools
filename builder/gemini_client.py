@@ -15,7 +15,8 @@ API_BASE = "https://generativelanguage.googleapis.com/v1beta"
 
 
 def _key():
-    k = os.environ.get("GEMINI_API_KEY", "").strip()
+    # BOM・ゼロ幅文字の混入(Secrets設定時の事故)に耐える
+    k = os.environ.get("GEMINI_API_KEY", "").strip().strip("﻿​\r\n ").strip()
     if not k:
         raise RuntimeError("環境変数 GEMINI_API_KEY が設定されていません")
     return k
