@@ -50,10 +50,19 @@ def pick_model():
     return "gemini-2.0-flash"
 
 
+FALLBACK_MODEL = "gemini-2.0-flash"
+
+
 def generate_json(prompt, max_retries=3):
-    """プロンプトを投げてJSONレスポンスを返す。戻り値: (parsed_dict, model_name)"""
-    model = pick_model()
-    url = f"{API_BASE}/models/{model}:generateContent?key={_key()}"
+    """プロンプトを投げてJSONレスポンスを返す。戻り値: (parsed_dict, model_name)
+
+    最新モデルが高負荷(429/503)で落ち続ける場合は、最後に古い安定モデルへフォールバックする。
+    """
+    primary = pick_model()
+    models = [primary] * max_retries
+    if primary != FALLBACK_MODEL:
+        models.append(FALLBACK_MODEL)
+
     body = json.dumps(
         {
             "contents": [{"parts": [{"text": prompt}]}],
@@ -66,7 +75,8 @@ def generate_json(prompt, max_retries=3):
     ).encode("utf-8")
 
     last_err = None
-    for attempt in range(1, max_retries + 1):
+    for attempt, model in enumerate(models, 1):
+        url = f"{API_BASE}/models/{model}:generateContent?key={_key()}"
         try:
             req = urllib.request.Request(url, data=body, headers={"Content-Type": "application/json"})
             with urllib.request.urlopen(req, timeout=120) as r:
@@ -75,21 +85,22 @@ def generate_json(prompt, max_retries=3):
             return json.loads(text), model
         except urllib.error.HTTPError as e:
             last_err = f"HTTP {e.code}: {e.read().decode('utf-8', 'replace')[:300]}"
-            if e.code in (429, 500, 502, 503, 504) and attempt < max_retries:
-                wait = 30 * attempt
-                print(f"  Gemini API {e.code} → {wait}秒待ってリトライ({attempt}/{max_retries})")
+            if e.code in (429, 500, 502, 503, 504) and attempt < len(models):
+                wait = 20 * attempt
+                nxt = models[attempt]
+                print(f"  Gemini API {e.code} → {wait}秒待って{nxt}でリトライ({attempt}/{len(models)})")
                 time.sleep(wait)
                 continue
             raise RuntimeError(f"Gemini APIエラー: {last_err}")
         except (KeyError, IndexError, json.JSONDecodeError) as e:
             last_err = f"レスポンス解析失敗: {e}"
-            if attempt < max_retries:
+            if attempt < len(models):
                 time.sleep(10)
                 continue
             raise RuntimeError(last_err)
         except Exception as e:
             last_err = str(e)
-            if attempt < max_retries:
+            if attempt < len(models):
                 time.sleep(15)
                 continue
             raise RuntimeError(f"Gemini API呼び出し失敗: {last_err}")
