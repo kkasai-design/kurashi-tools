@@ -176,19 +176,25 @@ def validate_column_content(data):
 # ---------------- 公開処理 ----------------
 
 def generate_with_retry(prompt, validator):
-    """生成→検証を最大2回。成功で(data, model)、失敗で(None, 理由)"""
+    """生成→検証を最大2回。
+
+    戻り値: (data, model, api_error)
+    - 成功: (dict, モデル名, False)
+    - API障害: (None, 理由, True)  ← attemptsに数えない(翌日リトライで自然回復)
+    - 検証NG: (None, 理由, False) ← attemptsに数える(5回で隔離)
+    """
     last = "不明"
     for i in range(2):
         try:
             data, model = gemini_client.generate_json(prompt)
         except RuntimeError as e:
-            return None, str(e)
+            return None, str(e), True
         errs = validator(data)
         if not errs:
-            return data, model
+            return data, model, False
         last = " / ".join(errs)
         print(f"  生成物の検証NG(再生成 {i + 1}/2): {last}")
-    return None, f"検証NG: {last}"
+    return None, f"検証NG: {last}", False
 
 
 def publish_from_queue(item_path, site, state):
@@ -199,11 +205,14 @@ def publish_from_queue(item_path, site, state):
     logic_src = open(os.path.join(ROOT, tool["logic_file"]), encoding="utf-8").read()
     tests = load_json(os.path.join(ROOT, "tests", f"{tid}.test.json"))
 
-    data, result = generate_with_retry(tool_prompt(tool, logic_src, tests), validate_tool_content)
+    data, result, api_error = generate_with_retry(tool_prompt(tool, logic_src, tests), validate_tool_content)
     if data is None:
+        if api_error:
+            print(f"  Gemini API障害のため本日はスキップ(翌日自動リトライ): {result}")
+            return False
         attempts = state["attempts"].get(tid, 0) + 1
         state["attempts"][tid] = attempts
-        print(f"  本日はスキップ(累計{attempts}回失敗): {result}")
+        print(f"  本日はスキップ(検証NG 累計{attempts}回): {result}")
         if attempts >= 5:
             dest = os.path.join(ROOT, "queue", "failed", os.path.basename(item_path))
             shutil.move(item_path, dest)
@@ -244,11 +253,14 @@ def add_column(site, state):
     print(f"コラム追加: {slug}(関連ツール: {tool['id']})")
 
     existing_titles = [c["title"] for c in columns]
-    data, result = generate_with_retry(column_prompt(tool, existing_titles), validate_column_content)
+    data, result, api_error = generate_with_retry(column_prompt(tool, existing_titles), validate_column_content)
     if data is None:
+        if api_error:
+            print(f"  Gemini API障害のため本日はスキップ(翌日自動リトライ): {result}")
+            return False
         attempts = state["attempts"].get(key, 0) + 1
         state["attempts"][key] = attempts
-        print(f"  本日はスキップ(累計{attempts}回失敗): {result}")
+        print(f"  本日はスキップ(検証NG 累計{attempts}回): {result}")
         return False
 
     model = result
@@ -286,7 +298,7 @@ def refresh_old_content(site, state):
 
     logic_src = open(os.path.join(ROOT, tool["logic_file"]), encoding="utf-8").read()
     tests = load_json(os.path.join(ROOT, "tests", f"{tid}.test.json"))
-    data, result = generate_with_retry(refresh_prompt(tool, logic_src, tests), validate_tool_content)
+    data, result, _api_error = generate_with_retry(refresh_prompt(tool, logic_src, tests), validate_tool_content)
     if data is None:
         print(f"  本日はスキップ: {result}")
         return False
