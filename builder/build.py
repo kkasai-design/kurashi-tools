@@ -635,6 +635,8 @@ def main():
         write_text(os.path.join(DIST, site["indexnow_key"] + ".txt"), site["indexnow_key"])
     if mon.get("ads_txt", "").strip():
         write_text(os.path.join(DIST, "ads.txt"), mon["ads_txt"].strip() + "\n")
+    if site.get("custom_domain", "").strip():
+        write_text(os.path.join(DIST, "CNAME"), site["custom_domain"].strip() + "\n")
     write_text(os.path.join(DIST, ".nojekyll"), "")
 
     # 検証ゲート
