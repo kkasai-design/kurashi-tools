@@ -29,12 +29,12 @@ def esc(s):
 
 
 def load_json(path):
-    with open(path, encoding="utf-8") as f:
+    with open(path, encoding="utf-8-sig") as f:
         return json.load(f)
 
 
 def read_text(path):
-    with open(path, encoding="utf-8") as f:
+    with open(path, encoding="utf-8-sig") as f:
         return f.read()
 
 

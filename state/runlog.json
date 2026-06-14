@@ -1,10 +1,6 @@
-﻿{
-    "attempts":  {
-
-                 },
-    "last_run":  "2026-06-12",
-    "last_success":  "2026-06-13",
-    "last_published_urls":  [
-
-                            ]
+{
+  "attempts": {},
+  "last_run": "2026-06-13",
+  "last_success": "2026-06-13",
+  "last_published_urls": []
 }
