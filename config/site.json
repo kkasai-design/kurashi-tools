@@ -1,9 +1,9 @@
 {
   "site_name": "くらしの計算室",
   "tagline": "毎日の「ちょっと計算したい」を3秒で",
-  "base_url": "https://kkasai-design.github.io/kurashi-tools",
-  "base_path": "/kurashi-tools",
-  "custom_domain": "",
+  "base_url": "https://kurashi-keisan.com",
+  "base_path": "",
+  "custom_domain": "kurashi-keisan.com",
   "lang": "ja",
   "author": "くらしの計算室 運営部",
   "gsc_meta_content": "",
