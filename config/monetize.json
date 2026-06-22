@@ -14,6 +14,6 @@
     "before_faq": ["html:admax_rect"],
     "article_bottom": ["html:free_bottom"]
   },
-  "adsense_head_tag": "",
+  "adsense_head_tag": "<script async src=\"https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6111492248890769\" crossorigin=\"anonymous\"></script>",
   "ads_txt": ""
 }
