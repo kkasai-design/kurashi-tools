@@ -1,6 +1,8 @@
 {
   "attempts": {},
-  "last_run": "2026-06-25",
-  "last_success": "2026-06-23",
-  "last_published_urls": []
+  "last_run": "2026-06-26",
+  "last_success": "2026-06-26",
+  "last_published_urls": [
+    "https://kurashi-keisan.com/teiki-bunki/"
+  ]
 }
